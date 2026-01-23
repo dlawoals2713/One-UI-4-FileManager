@@ -56,7 +56,7 @@ public class UpdatelogActivity extends BaseThemeActivity {
 		app = Double.parseDouble(getIntent().getStringExtra("app"));
 		lastUpdate =
 				"• 6.5(1)\n- Smart All in one 6.5 Test 51 AS 에서 클론\n- One UI 3과 One UI 4 전환 기능 추가\n- 스토리지 서버 삭제\n\n" +
-						"• 6.5(6559)\n- Smart All in one 6.5 Test 59 AS 에서 파일 최적화 코드 클론";
+						"• 6.5(6559)\n- Smart All in one 6.5 Test 59 AS 에서 파일 최적화 코드 클론\n- /saio 폴더가 없을 때 Drawer의 saio 사용자 저장소를 숨기도록 변경";
 		_log_dataset();
 		Snackbar.make(recyclerview1, "최신 업데이트 정보를 확인할까요?", Snackbar.LENGTH_SHORT)
 		    .setAction("확인", v -> {

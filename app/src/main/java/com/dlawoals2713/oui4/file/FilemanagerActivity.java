@@ -3247,7 +3247,7 @@ public class FilemanagerActivity extends BaseThemeActivity {
 				}
 
 				String outputDirPath = Environment.getExternalStorageDirectory().getPath() +
-									 "/saio/Extracted Album";
+									 "/Pictures/OUI FileManager/Extracted Album";
 				File outputDir = new File(outputDirPath);
 				if (!outputDir.exists()) {
 					outputDir.mkdirs();
@@ -3747,7 +3747,7 @@ public class FilemanagerActivity extends BaseThemeActivity {
 	    @Override
 	    protected Boolean doInBackground(Void... voids) {
 			try {
-				File outputDir = new File(Environment.getExternalStorageDirectory(), "saio/generated image");
+				File outputDir = new File(Environment.getExternalStorageDirectory(), "Pictures/OUI FileManager/generated image");
 				if (!outputDir.exists() && !outputDir.mkdirs()) {
 					errorMessage = "결과 폴더를 생성할 수 없습니다.";
 					return false;
@@ -3839,7 +3839,7 @@ public class FilemanagerActivity extends BaseThemeActivity {
 			}
 
 			try {
-				File outputDir = new File(Environment.getExternalStorageDirectory(), "saio/generated image");
+				File outputDir = new File(Environment.getExternalStorageDirectory(), "Pictures/OUI FileManager/generated image");
 				if (!outputDir.exists() && !outputDir.mkdirs()) {
 					errorMessage = "결과 폴더를 생성할 수 없습니다.";
 					return false;
@@ -3929,7 +3929,7 @@ public class FilemanagerActivity extends BaseThemeActivity {
 					wrapCount,
 					centerAlign,
 					transparentBg,
-					new File(Environment.getExternalStorageDirectory(), "saio/generated image/" + fileName + ".png").getAbsolutePath(),
+					new File(Environment.getExternalStorageDirectory(), "Pictures/OUI FileManager/generated image/" + fileName + ".png").getAbsolutePath(),
                         this::publishProgress
                 );
 			} catch (Exception e) {
@@ -3994,7 +3994,7 @@ public class FilemanagerActivity extends BaseThemeActivity {
 
 		@Override
 		protected Boolean doInBackground(Void... voids) {
-			File outputDir = new File(Environment.getExternalStorageDirectory(), "saio/generated image");
+			File outputDir = new File(Environment.getExternalStorageDirectory(), "Pictures/OUI FileManager/generated image");
 			if (!outputDir.exists() && !outputDir.mkdirs()) {
 				errorMessage = "결과 폴더를 생성할 수 없습니다.";
 				return false;
@@ -4065,7 +4065,7 @@ public class FilemanagerActivity extends BaseThemeActivity {
 	}
 
 	private boolean isDuplicateFileName(String fileName) {
-	    File outputDir = new File(Environment.getExternalStorageDirectory(), "saio/generated image");
+	    File outputDir = new File(Environment.getExternalStorageDirectory(), "Pictures/OUI FileManager/generated image");
 	    File file = new File(outputDir, fileName + ".png");
 	    return file.exists();
 	}
@@ -4322,7 +4322,7 @@ public class FilemanagerActivity extends BaseThemeActivity {
 	    File baseDir = Environment.getExternalStorageDirectory();
 
 	    // 원하는 서브 디렉토리 생성
-	    File downloadDir = new File(baseDir, "saio/FTP Download");
+	    File downloadDir = new File(baseDir, "Download/OUI FileManager/FTP Download");
 	    if (!downloadDir.exists()) {
 			downloadDir.mkdirs();
 		}
@@ -5621,7 +5621,22 @@ public class FilemanagerActivity extends BaseThemeActivity {
 			} catch (Exception e) {
 				ExceptionLogger.log(e, "FileManagerActivity:_refresh");
 				SketchwareUtil.showMessage(getApplicationContext(), e.getMessage());
-				}
+			}
+		}
+		saioExists();
+	}
+
+	private void saioExists() {
+		try {
+			File folder = new File(Environment.getExternalStorageDirectory() + "/saio");
+
+			if (folder.exists() && folder.isDirectory()) {
+				findViewById(R.id.drawer_view).findViewById(R.id.sc_user).setVisibility(View.VISIBLE);
+			} else {
+				findViewById(R.id.drawer_view).findViewById(R.id.sc_user).setVisibility(View.GONE);
+			}
+		} catch (Exception e) {
+			ExceptionLogger.log(e, "FilemanagerActivity:saioExists");
 		}
 	}
 

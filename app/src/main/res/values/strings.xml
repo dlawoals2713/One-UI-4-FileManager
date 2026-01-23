@@ -150,8 +150,8 @@
     <string name="permission_data_permission_label" translatable="false">Access to Smart All in one internal data</string>
     <string name="permission_data_permission_description" translatable="false">This app can access any SAIO internal data. If you allow, data in SAIO may change.</string>
     
-    <string name="version" translatable="false">6.5 test_51_as (6)</string>
-    <string name="version_type" translatable="false">Test Version</string>
+    <string name="version" translatable="false">6.5 test_59_as (6)</string>
+    <string name="version_type" translatable="false">Stable Version</string>
     <string name="policy_ver" translatable="false">20250715</string>
     <string name="copyright" translatable="false">©2025 by dlawoals2713. Proudly created</string>
 

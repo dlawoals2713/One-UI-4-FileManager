@@ -1,0 +1,287 @@
+<de.dlyt.yanndroid.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:title="@string/home_setting"
+    app:navigationIcon="@drawable/ic_samsung_back">
+
+    <de.dlyt.yanndroid.oneui.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/sesl_appbar_scrolling_view_behavior">
+		<LinearLayout
+			android:id="@+id/linear1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/textview11"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="유닛 - 파일 매니저"
+				android:textSize="12sp"
+				android:textColor="@color/textColor"
+				style="?android:listSeparatorTextViewStyle" />
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/group_1"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<LinearLayout
+					android:id="@+id/linear3"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/textview12"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="기본 타이틀 표시 방식: 유닛 이름 / 폴더 이름"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/textview13"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="기본 정렬 방식: 기본 정렬 / 폴더 우선 정렬"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/textview14"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="기본 캐시 정리 방식: 폴더 이동 시 / 위로 당길 때만"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/textview15"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="기본 이미지 표시 방식: 한 이미지만 보기 / 여러 이미지 같이 보기 / 항상 묻기"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/textview16"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="기본 동영상 표시 방식: VLC 플레이어 / 기본 플레이어 / 항상 묻기"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/textview17"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="VLC 네트워크 버퍼 크기: 3000ms"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/textview18"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="사운드 비주얼라이저 막대 개수: 200개"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/textview19"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="사운드 비주얼라이저 부드러움 정도: 0/10"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/textview8"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="유닛 - 통합 설정"
+				android:textSize="12sp"
+				android:textColor="@color/textColor"
+				style="?android:listSeparatorTextViewStyle" />
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/group_unit_all"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<LinearLayout
+					android:id="@+id/linear77"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<de.dlyt.yanndroid.oneui.widget.Switch
+						android:id="@+id/unit_split"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="큰 화면에서 유닛 나눠 보기"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginLeft="36dp"
+						android:layout_marginRight="36dp"
+						android:padding="8dp"
+						android:background="?android:attr/listDivider"
+						android:orientation="horizontal" />
+					<TextView
+						android:id="@+id/theme_toggle"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="사운드 비주얼라이저 부드러움 정도: 0/10"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/textview9"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="업데이트"
+				android:textSize="12sp"
+				android:textColor="@color/textColor"
+				style="?android:listSeparatorTextViewStyle" />
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/group_update_download"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<LinearLayout
+					android:id="@+id/linear79"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/updatelog"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="업데이트 로그"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+		</LinearLayout>
+    </de.dlyt.yanndroid.oneui.widget.NestedScrollView>
+</de.dlyt.yanndroid.oneui.layout.ToolbarLayout>

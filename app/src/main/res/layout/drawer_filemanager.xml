@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_location="drawer_panel">
+    
+    <!-- 스크롤뷰 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <!-- 세로 방향 LinearLayout -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/ftp_connect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_samsung_network_storage"
+                app:text="FTP 연결"/>
+                
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/ftp_folder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:icon="@drawable/ic_samsung_network_storage"
+                app:text="FTP"/>
+            
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/ftp_disconnect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:icon="@drawable/ic_samsung_unpair"
+                app:text="FTP 연결 해제"/>
+                    
+            <View
+                android:id="@+id/divider_1"
+                style="@style/DrawerDividerStyle"/>
+                
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_app_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_saio"
+                app:text="SAIO 내부 저장소"/>
+
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_app_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_saio"
+                app:text="SAIO 외부 저장소"/>
+
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_saio"
+                app:text="SAIO 공개 저장소"/>
+
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_saio"
+                app:text="SAIO 사용자 저장소"/>
+                
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_device"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_samsung_device"
+                app:text="모델을 찾을 수 없음"/>
+                    
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_audio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_samsung_audio"
+                app:text="오디오"/>
+                
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_document"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_samsung_document"
+                app:text="문서"/>
+                
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_samsung_image"
+                app:text="이미지"/>
+                
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_samsung_video"
+                app:text="동영상"/>
+                
+            <de.dlyt.yanndroid.oneui.widget.OptionButton
+                android:id="@+id/sc_download"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_samsung_download"
+                app:text="다운로드"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

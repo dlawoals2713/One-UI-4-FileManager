@@ -1,0 +1,161 @@
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.START_ANY_ACTIVITY"
+        tools:ignore="ProtectedPermissions" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+	<uses-permission android:name="android.permission.INSTALL_PACKAGES"
+        tools:ignore="ProtectedPermissions" />
+	<uses-permission android:name="android.permission.INSTALL_PACKAGE_UPDATES"
+        tools:ignore="ProtectedPermissions" />
+	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+	<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+		android:hasFragileUserData="true"
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:name=".dlawoals2713App"
+		android:requestLegacyExternalStorage="true"
+		
+		android:theme="@style/OneUITheme"
+		android:localeConfig="@xml/locale_config"
+		android:supportsRtl="true"
+		android:largeHeap="true"
+        tools:targetApi="33">
+		<property
+			android:name="android.window.PROPERTY_ACTIVITY_EMBEDDING_SPLITS_ENABLED"
+			android:value="true" />
+        <meta-data
+            android:name="SamsungBasicInteraction"
+            android:value="SEP10" />
+		<activity
+			android:name=".DebugActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+		<activity
+			android:name=".TxtEditorActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+		<activity
+			android:name=".FilemanagerActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:exported="true" >
+			<meta-data
+				android:name="com.sec.android.app.launcher.icon_theme" android:value="themeColor"/>
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".FilemanagerVideoActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:supportsPictureInPicture="true"
+			android:theme="@style/AppTheme.FullScreen"
+			android:documentLaunchMode="intoExisting"
+			android:taskAffinity="com.dlawoals2713.oui4.file.docs"
+			android:icon="@drawable/ic_samsung_file_type_video"
+			android:label="OUI Video Player"
+			android:exported="false"/>
+		<activity
+			android:name=".FilemanagerVLCActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:supportsPictureInPicture="true"
+			android:theme="@style/Theme.OneUI.FullScreen"
+			android:resizeableActivity="true"
+			android:documentLaunchMode="intoExisting"
+			android:taskAffinity="com.dlawoals2713.oui4.file.docs"
+			android:icon="@drawable/ic_vlc_png"
+			android:label="OUI VLC Player"
+			android:exported="false"/>
+		<activity
+			android:name=".FilemanagerSingleImageActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:supportsPictureInPicture="true"
+			android:theme="@style/AppTheme.FullScreen"
+			android:documentLaunchMode="intoExisting"
+			android:taskAffinity="com.dlawoals2713.oui4.file.docs"
+			android:label="OUI Image Viewer"/>
+		<activity
+			android:name=".FilemanagerMultiImageActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:supportsPictureInPicture="true"
+			android:theme="@style/AppTheme.FullScreen"
+			android:documentLaunchMode="intoExisting"
+			android:taskAffinity="com.dlawoals2713.oui4.file.docs"
+			android:label="OUI Image Viewer"/>
+		<activity
+			android:name=".PdfViewerActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:windowSoftInputMode="stateHidden"
+			android:documentLaunchMode="intoExisting"
+			android:taskAffinity="com.dlawoals2713.oui4.file.docs"
+			android:label="OUI PDF Viewer"
+			android:exported="false"/>
+		<activity
+			android:name=".UpdatelogActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+		<activity
+			android:name=".SettingActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+		<activity
+			android:name=".UpdatelogappActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+		<activity
+			android:name=".DeveloperMenuActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+		<activity
+			android:name=".AboutActivity"
+			android:theme="@style/OneUIAboutTheme" />
+		<activity
+			android:name=".FullPlayerActivity"
+			android:configChanges="orientation"
+			android:theme="@style/Theme.TransparentActivity" />
+		<activity
+			android:name=".PlaceholderActivity"
+			android:label="" />
+		<activity
+			android:name=".MMFPlayerActivity"
+			android:configChanges="orientation|screenSize"
+			android:exported="true"
+			android:label="MMF Player">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<!-- MIME 타입 필터 -->
+				<data android:scheme="content" android:mimeType="application/vnd.smaf"
+					tools:ignore="AppLinkUrlError" />
+				<data android:scheme="file" android:mimeType="application/vnd.smaf"/>
+
+				<data android:pathPattern=".*\\.mmf" />
+			</intent-filter>
+		</activity>
+		<provider
+			android:authorities="com.dlawoals2713.oui4.file.provider"
+			android:name="androidx.core.content.FileProvider"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/provider_paths" />
+		</provider>
+		<service
+			android:name=".MusicService"
+			android:enabled="true" />
+	</application>
+</manifest>

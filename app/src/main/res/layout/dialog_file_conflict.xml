@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="원본 파일 정보"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txt_source_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="대상 위치의 기존 파일 정보"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txt_dest_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <CheckBox
+        android:id="@+id/chk_apply_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="모든 충돌에 이 선택 적용"/>
+
+</LinearLayout>

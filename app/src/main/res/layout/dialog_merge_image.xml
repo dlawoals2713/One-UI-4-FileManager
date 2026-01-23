@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <de.dlyt.yanndroid.oneui.view.OptionGroup
+        android:id="@+id/direction_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:selectedOptionButton="@id/horizontal_merge">
+
+        <de.dlyt.yanndroid.oneui.widget.OptionButton
+            android:id="@+id/horizontal_merge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text="가로로 병합"
+            app:icon="@drawable/ic_samsung_arrow_right" />
+
+        <de.dlyt.yanndroid.oneui.widget.OptionButton
+            android:id="@+id/vertical_merge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text="세로로 병합"
+            app:icon="@drawable/ic_samsung_arrow_down" />
+    </de.dlyt.yanndroid.oneui.view.OptionGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="줄 바꿈 (0=없음): " />
+
+        <EditText
+            android:id="@+id/wrap_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:text="0" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/center_align_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="각 줄마다 중앙 정렬" />
+
+    <CheckBox
+        android:id="@+id/transparent_bg_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="투명 배경 사용" />
+</LinearLayout>

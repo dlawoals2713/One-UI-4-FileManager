@@ -1,0 +1,226 @@
+<resources>
+    <string name="app_name" translatable="false">OneUI FileManager</string>
+
+    <string name="restore_advanced_development" translatable="false">Developer Menu</string>
+
+    <string name="home_setting" translatable="false">Settings</string>
+    <string name="home_update" translatable="false">Update</string>
+    <string name="home_announce" translatable="false">Announcement</string>
+    <string name="home_power" translatable="false">Power menu</string>
+    <string name="home_unit" translatable="false">UNIT</string>
+    <string name="home_resort" translatable="false">Change Order (Experimental)</string>
+
+    <string name="home_unit_camera" translatable="false">Camera</string>
+    <string name="home_unit_tts" translatable="false">TTS</string>
+    <string name="home_unit_ma" translatable="false">Moving\nAndroid</string>
+    <string name="home_unit_gyroscope" translatable="false">Gyroscope</string>
+    <string name="home_unit_applist" translatable="false">App list</string>
+    <string name="home_unit_appuninstall" translatable="false">Uninstall app</string>
+    <string name="home_unit_filemanager" translatable="false">File Manager</string>
+    <string name="home_unit_pdfviewer" translatable="false">PDF Viewer</string>
+    <string name="home_unit_paintboard" translatable="false">Paint</string>
+    <string name="home_unit_encryptiondecryption" translatable="false">En,Decryption</string>
+    <string name="home_unit_memo" translatable="false">Notepad</string>
+    <string name="home_unit_fileupload" translatable="false">File Uploader</string>
+    <string name="home_unit_globalchat" translatable="false">Global Chat</string>
+    <string name="home_unit_map" translatable="false">Map</string>
+    <string name="home_unit_cid" translatable="false">CID Manager</string>
+    <string name="home_unit_phoneinfo" translatable="false">Phone Info</string>
+    <string name="home_unit_txt" translatable="false">TXT Editor</string>
+    <string name="home_unit_network" translatable="false">Network status</string>
+    <string name="home_unit_animatoo" translatable="false">Animatoo</string>
+    <string name="home_unit_screenrecord" translatable="false">Screen recorder</string>
+    <string name="home_unit_game" translatable="false">Game</string>
+    <string name="home_unit_bmi" translatable="false">BMI Calculator</string>
+    <string name="home_unit_ss" translatable="false">System Settings</string>
+    <string name="home_unit_protractor" translatable="false">Protractor</string>
+    <string name="home_unit_internet3" translatable="false">Internet 3.0</string>
+    <string name="home_unit_qr" translatable="false">QR code tools</string>
+    <string name="home_unit_qr_generate" translatable="false">QR Code Generator</string>
+    <string name="home_unit_qr_generate_txt" translatable="false">Generate a QR code and share it!</string>
+    <string name="home_unit_qr_scan" translatable="false">QR Code Scanner</string>
+    <string name="home_unit_qr_scan_txt" translatable="false">This unit can recognize not only QR but also barcodes!</string>
+    <string name="home_unit_clock" translatable="false">Clock</string>
+    <string name="home_unit_battery" translatable="false">Battery</string>
+    <string name="home_unit_calculator" translatable="false">Calculator</string>
+    <string name="home_unit_batchfileeditor" translatable="false">Batch File Editor</string>
+    <string name="home_unit_vibrator" translatable="false">Vibrator test</string>
+    <string name="home_unit_unix" translatable="false">Unix time calculator</string>
+    <string name="home_unit_activitystack" translatable="false">Activity stack</string>
+    <string name="home_unit_magnetic" translatable="false">Metal detector</string>
+    <string name="home_unit_notifytracer" translatable="false">Notify Tracer</string>
+    <string name="home_unit_camone" translatable="false">CamOne</string>
+    <string name="home_unit_exception_first" translatable="false">The system requested an invalid item, number </string>
+    <string name="home_unit_exception_last" translatable="false">.</string>
+
+    <string name="home_unavailable_dismiss" translatable="false">OK</string>
+    <string name="home_unavailable_multiwindow" translatable="false">This unit cannot be used while using multi-window.</string>
+    <string name="home_unavailable_android" translatable="false">This unit is unusable because your device\'s Android version is very low.</string>
+
+    <string name="home_update_notify_title" translatable="false">New update found</string>
+    <string name="home_update_notify_title_beta" translatable="false">New beta update found</string>
+    <string name="home_update_notify_title_i" translatable="false">New important update found</string>
+    <string name="home_update_notify_title_beta_i" translatable="false">New important beta update found</string>
+    <string name="home_update_notify_message_first" translatable="false">New version available.</string>
+    <string name="home_update_notify_message_first_beta" translatable="false">New beta version available.</string>
+    <string name="home_update_notify_message_first_i" translatable="false">New important update available.</string>
+    <string name="home_update_notify_message_first_beta_i" translatable="false">New important beta update available.</string>
+    <string name="home_update_notify_message_second" translatable="false">\nNew version: </string>
+    <string name="home_update_notify_message_last" translatable="false">\nWould you like to install?</string>
+    <string name="home_update_notify_message_last_i" translatable="false">\nClicking OK will start the update.\nDo you want to continue?</string>
+    <string name="home_update_notify_ok" translatable="false">OK</string>
+    <string name="home_update_notify_cancel" translatable="false">Cancel</string>
+
+    <string name="home_shut_title" translatable="false">Please wait</string>
+    <string name="home_shut_message" translatable="false">Shutting down</string>
+
+    <string name="home_fcm_subscribe_success" translatable="false">인앱 업데이트 알림을 구독 했습니다</string>
+    <string name="home_fcm_subscribe_fail" translatable="false">Failed to subscribe</string>
+    <string name="home_fcm_unsubscribe_success" translatable="false">인앱 업데이트 알림을 구독하지 않았습니다</string>
+    <string name="home_fcm_unsubscribe_fail" translatable="false">Failed to unsubscribe</string>
+    <string name="home_fcm_dialog_title" translatable="false">알림 수신 여부 확인</string>
+    <string name="home_fcm_dialog_message" translatable="false">Smart All in one을 사용하지 않을 때도 신규 공식 업데이트 배포 알림을 받으시겠습니까?</string>
+    <string name="home_fcm_dialog_ok" translatable="false">Yes</string>
+    <string name="home_fcm_dialog_cancel" translatable="false">Essential notifications only</string>
+
+    <string name="placeholder_text">Enjoy your time at Smart All in one.</string>
+
+    <string name="camera_canceled" translatable="false">canceled</string>
+    <string name="camera_saved_1" translatable="false">The photo was saved at located </string>
+    <string name="camera_saved_2" translatable="false">.</string>
+
+    <string name="tts_input" translatable="false">Input</string>
+    <string name="tts_speed" translatable="false">Speed</string>
+    <string name="tts_delay" translatable="false">Delay</string>
+    <string name="tts_pitch" translatable="false">Pitch</string>
+    <string name="tts_stt_start" translatable="false">STT start</string>
+    <string name="tts_stt_stop" translatable="false">STT stop</string>
+    <string name="tts_save" translatable="false">Save as sound file</string>
+    <string name="tts_play" translatable="false">Play</string>
+    <string name="tts_stop" translatable="false">Stop</string>
+
+    <string name="app_searchhint" translatable="false">Search Package</string>
+
+    <string name="txt_save" translatable="false">Save</string>
+    <string name="txt_path" translatable="false">File path</string>
+    <string name="txt_contents" translatable="false">Contents</string>
+
+    <string name="file_audio" translatable="false">Audio</string>
+    <string name="file_documents" translatable="false">Documents</string>
+    <string name="file_image" translatable="false">Images</string>
+    <string name="file_videos" translatable="false">Videos</string>
+    <string name="file_downloads" translatable="false">Downloads</string>
+    <string name="file_tool_b1" translatable="false">Close</string>
+    <string name="file_tool_b2" translatable="false">Open in text</string>
+    <string name="file_tool_b3" translatable="false">Move</string>
+    <string name="file_tool_b4" translatable="false">Copy</string>
+    <string name="file_tool_b5" translatable="false">Remove</string>
+    <string name="file_tool_b6" translatable="false">Rename</string>
+    <string name="file_tool_b3_confirm" translatable="false">Go to the directory where you want to move the file and press the fab button.</string>
+    <string name="file_tool_b4_confirm" translatable="false">Go to the directory where you want to copy the file and press the fab button.</string>
+    <string name="file_remove_message" translatable="false">Are you sure you want to delete this file?</string>
+    <string name="file_remove_ok" translatable="false">Yes</string>
+    <string name="file_remove_cancel" translatable="false">Cancel</string>
+    <string name="file_rename_hint" translatable="false">New name</string>
+    <string name="file_rename_cancel" translatable="false">Cancel</string>
+    <string name="file_rename_ok" translatable="false">Okay</string>
+    <string name="file_rename_canceled" translatable="false">Canceled</string>
+
+    <string name="setting_language" translatable="false">Language</string>
+
+    <string name="debug_title" translatable="false">An unexpected error occurred!</string>
+    <string name="debug_subtitle" translatable="false">Please select the option you want.</string>
+    <string name="debug_explain_1" translatable="false">Ignore the error and go to unit home</string>
+    <string name="debug_explain_2" translatable="false">Restart the app</string>
+    <string name="debug_explain_3" translatable="false">Close the app normally</string>
+    <string name="debug_explain_4" translatable="false">Forcefully destroys the process and then terminates the app\nIf you are using an activity stack, it will be stopped too</string>
+    <string name="debug_home" translatable="false">Go Home</string>
+    <string name="debug_restart" translatable="false">Restart app</string>
+    <string name="debug_shutdown" translatable="false">Quit app</string>
+    <string name="debug_killprocess" translatable="false">Terminate app process</string>
+    <string name="debug_copy" translatable="false">Copy error log</string>
+
+    <string name="reboot_message" translatable="false">Restarting...</string>
+
+    <string name="accessibility_service_description" translatable="false">Displays the currently focused activity on the device. Can be used in Activity Stack unit</string>
+
+    <string name="permission_group_access_label" translatable="false">Smart All in one</string>
+    <string name="permission_group_access_description" translatable="false">access to Smart All in one</string>
+
+    <string name="permission_data_permission_label" translatable="false">Access to Smart All in one internal data</string>
+    <string name="permission_data_permission_description" translatable="false">This app can access any SAIO internal data. If you allow, data in SAIO may change.</string>
+    
+    <string name="version" translatable="false">6.5 test_51_as (6)</string>
+    <string name="version_type" translatable="false">Test Version</string>
+    <string name="policy_ver" translatable="false">20250715</string>
+    <string name="copyright" translatable="false">©2025 by dlawoals2713. Proudly created</string>
+
+    <string name="banned_user_info_text" translatable="false">This user\'s account has been banned</string>
+    <string name="verified_account" translatable="false">Verified Account</string>
+    <string name="edit_profile" translatable="false">Edit Profile</string>
+    <string name="biography" translatable="false">Biography</string>
+    <string name="join_date" translatable="false">Join Date : </string>
+    <string name="user_id" translatable="false">UID : </string>
+    <string name="oh_there_us_a_problem" translatable="false">Oh! There is a problem :(</string>
+    <string name="follow" translatable="false">Follow</string>
+    <string name="unfollow" translatable="false">Unfollow</string>
+    <string name="followers" translatable="false">Followers</string>
+    <string name="online" translatable="false">online</string>
+    <string name="offline" translatable="false">offline</string>
+    <string name="reasons_may_be" translatable="false">Reasons may be:</string>
+    <string name="err_no_internet" translatable="false">• You have no or weak internet connection.</string>
+    <string name="err_app_maintenance" translatable="false">• The application may be under maintenance.</string>
+    <string name="err_problem_on_our_side" translatable="false">• There may be technical problems on our side.</string>
+    <string name="err_no_user">• This user is not a Skyline user!</string>
+    <string name="seconds_ago" translatable="false">seconds ago</string>
+    <string name="minutes_ago" translatable="false">minutes ago</string>
+    <string name="hours_ago" translatable="false">hours ago</string>
+    <string name="days_ago" translatable="false">days ago</string>
+    <string name="status_text_seconds" translatable="false">seconds ago</string>
+    <string name="status_text_minutes" translatable="false">minute ago</string>
+    <string name="status_text_hours" translatable="false">hours ago</string>
+    <string name="status_text_days" translatable="false">days ago</string>
+    <string name="status_text_week" translatable="false">week ago</string>
+    <string name="status_text_month" translatable="false">month ago</string>
+    <string name="status_text_years" translatable="false">year ago</string>
+    <string name="following" translatable="false">Following</string>
+    <string name="supporter" translatable="false">Supporter</string>
+    <string name="moderator" translatable="false">Moderator</string>
+    <string name="admin" translatable="false">Admin</string>
+
+    <string-array name="mmf_sample_rates">
+        <item>11025 Hz</item>
+        <item>16000 Hz</item>
+        <item>22050 Hz</item>
+        <item>24000 Hz</item>
+        <item>32000 Hz</item>
+        <item>44100 Hz</item>
+        <item>48000 Hz</item>
+    </string-array>
+
+    <string name="mmf_file_unselected">File not selected</string>
+    <string name="mmf_file_loaded">File loaded: %1$s</string>
+    <string name="mmf_file_loadError">Error loading file: %1$s</string>
+    <string name="mmf_file_notFound">File not found</string>
+    <string name="mmf_file_error">An error occurred while reading the file</string>
+    <string name="mmf_title">Title: %1$s</string>
+    <string name="mmf_artist">Artist: %1$s</string>
+    <string name="mmf_copyright">Copyright: %1$s</string>
+    <string name="mmf_genre">Genre: %1$s</string>
+    <string name="mmf_etc">MISC: %1$s</string>
+    <string name="mmf_init_title">Title: -</string>
+    <string name="mmf_init_artist">Artist: -</string>
+    <string name="mmf_init_copyright">Copyright: -</string>
+    <string name="mmf_init_genre">Genre: -</string>
+    <string name="mmf_init_etc">MISC: -</string>
+    <string name="mmf_parse_error">Metadata parsing error</string>
+    <string name="mmf_data_unknown">Unknown</string>
+    <string name="mmf_open">Open</string>
+    <string name="mmf_setting">Setting</string>
+    <string name="mmf_setting_sound_quality">Sound &amp; Quality</string>
+    <string name="mmf_setting_saved_rate">Saved. You must restart the service to apply.</string>
+    <string name="mmf_init_success">Initialize success</string>
+    <string name="mmf_init_fail">Initialize failed</string>
+    <string name="mmf_init_error">Please set a valid sample rate</string>
+    <string name="mmf_play_unselected">select file first</string>
+</resources>

@@ -1,0 +1,18 @@
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 내부 저장소 루트들 -->
+    <files-path name="internal_files" path="." />
+    <cache-path name="internal_cache" path="." />
+    <code-cache-path name="code_cache" path="." />
+    <no-backup-path name="no_backup" path="." />
+
+    <!-- 앱 전용 외부 저장소 -->
+    <external-files-path name="external_files" path="." />
+    <external-cache-path name="external_cache" path="." />
+
+    <!-- 공용 외부 저장소 전체 접근 허용 -->
+    <external-path name="external" path="." />
+
+    <!-- 사용자 정의 경로 -->
+    <cache-path name="ftp_downloads" path="ftp_downloads/" />
+    <external-path name="custom_ftp_downloads" path="saio/FTP Download/" />
+</paths>

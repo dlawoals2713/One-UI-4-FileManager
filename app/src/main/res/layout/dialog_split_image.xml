@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <de.dlyt.yanndroid.oneui.view.OptionGroup
+        android:id="@+id/direction_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:selectedOptionButton="@id/horizontal_split">
+
+        <de.dlyt.yanndroid.oneui.widget.OptionButton
+            android:id="@+id/horizontal_split"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text="가로로 분할"
+            app:icon="@drawable/ic_samsung_arrow_right" />
+
+        <de.dlyt.yanndroid.oneui.widget.OptionButton
+            android:id="@+id/vertical_split"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text="세로로 분할"
+            app:icon="@drawable/ic_samsung_arrow_down" />
+    </de.dlyt.yanndroid.oneui.view.OptionGroup>
+
+    <LinearLayout
+        android:id="@+id/split_count_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분할 수/비율: " />
+
+        <EditText
+            android:id="@+id/split_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:hint="2 또는 1:1" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/keep_ratio_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="항상 이 비율로 저장"
+        android:visibility="gone" />
+</LinearLayout>

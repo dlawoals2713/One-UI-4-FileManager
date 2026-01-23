@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/move"
+        android:icon="@drawable/ic_samsung_move"
+        android:title="이동"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/copy"
+        android:icon="@drawable/ic_samsung_copy"
+        android:title="복사"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/ic_samsung_share"
+        android:title="공유"
+        app:showAsAction="always" />
+        
+    <item
+        android:id="@+id/delete"
+        android:icon="@drawable/ic_samsung_delete"
+        android:title="삭제"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/make"
+        android:icon="@drawable/ic_samsung_list_add"
+        android:title="만들기"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/download"
+        android:icon="@drawable/ic_samsung_download"
+        android:title="다운로드"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/info"
+        android:title="상세정보"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/rename"
+        android:title="이름 변경"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/zip"
+        android:title="압축"
+        app:showAsAction="never" />
+        
+    <item
+        android:id="@+id/album_ex"
+        android:title="앨범아트 추출"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/open"
+        android:title="다른 앱에서 열기"
+        app:showAsAction="never" />
+
+</menu>

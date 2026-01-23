@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.dlyt.yanndroid.oneui.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <PreferenceCategory
+        android:key="spacing" android:title="다크 모드 설정" />
+
+    <HorizontalRadioPreference
+        android:key="dark_mode" android:title="Dark mode settings" app:viewType="image" app:entriesImage="@array/preferences_darkmode_entries_image" app:entries="@array/preferences_darkmode_entries" app:entryValues="@array/preferences_darkmode_values" />
+    <SwitchPreference
+        android:key="dark_mode_auto" android:title="시스템 기본" />
+
+</de.dlyt.yanndroid.oneui.preference.PreferenceScreen>

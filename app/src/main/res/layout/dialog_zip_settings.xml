@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/zip_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="압축 파일 이름 (확장자 제외)"
+        android:inputType="text"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="포맷"
+        android:layout_marginTop="8dp"/>
+
+    <Spinner
+        android:id="@+id/format_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="압축율"
+        android:layout_marginTop="8dp"/>
+
+    <Spinner
+        android:id="@+id/compression_level_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/encryption_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="암호화 방법"
+        android:layout_marginTop="8dp"/>
+
+    <Spinner
+        android:id="@+id/encryption_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/password_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="비밀번호"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/password_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="분할 압축 (MB 단위, 0은 분할 안함)"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/split_size_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
+
+    <CheckBox
+        android:id="@+id/include_empty_folders_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="빈 폴더 포함"
+        android:checked="true" />
+</LinearLayout>

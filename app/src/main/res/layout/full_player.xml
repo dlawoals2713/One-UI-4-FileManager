@@ -1,0 +1,221 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/full_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/groupColor">
+
+    <LinearLayout
+        android:id="@+id/group_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <com.dlawoals2713.oui4.file.SoundVisualizerView
+            android:id="@+id/sound_visualizer_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="end|bottom"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/full_close"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_samsung_close"
+        android:contentDescription="닫기"
+        android:layout_gravity="start|top" />
+
+    <ImageButton
+        android:id="@+id/full_sv"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_samsung_equalizer"
+        android:contentDescription="사운드 비주얼라이저"
+        android:layout_gravity="end|top" />
+
+    <!-- 중앙 정렬을 위한 LinearLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <!-- 앨범 이미지 -->
+        <ImageView
+            android:id="@+id/full_album_art"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_samsung_file_type_audio" />
+
+        <!-- 곡 정보 -->
+        <TextView
+            android:id="@+id/full_song_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="곡 제목"
+            android:textSize="18sp"
+            android:textColor="@color/textColor"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/full_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아티스트"
+            android:textSize="14sp"
+            android:textColor="@color/textColor"
+            android:layout_marginTop="4dp" />
+
+        <!-- 시크바 + 시간 표시 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="32dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center_vertical">
+        
+            <!-- 현재 재생 위치 -->
+            <TextView
+                android:id="@+id/full_current_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textSize="12sp"
+                android:textColor="@color/textColor"
+                android:layout_marginEnd="8dp" />
+        
+            <!-- SeekBar -->
+            <de.dlyt.yanndroid.oneui.widget.SeekBar
+                android:id="@+id/full_seekbar"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+        
+            <!-- 총 재생 시간 -->
+            <TextView
+                android:id="@+id/full_total_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textSize="12sp"
+                android:textColor="@color/textColor"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- 재생 컨트롤 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <ImageButton
+                android:id="@+id/full_manage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_samsung_manage"
+                android:contentDescription="속도, 피치 조절" />
+
+            <ImageButton
+                android:id="@+id/full_prev"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_samsung_arrow_left"
+                android:contentDescription="이전 곡" />
+
+            <ImageButton
+                android:id="@+id/full_play_pause"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_samsung_play"
+                android:contentDescription="재생/일시정지" />
+
+            <ImageButton
+                android:id="@+id/full_next"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_samsung_arrow_right"
+                android:contentDescription="다음 곡" />
+                
+            <ImageButton
+                android:id="@+id/full_loop"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_samsung_repeat"
+                android:contentDescription="반복 모드" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/group_manage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:visibility="gone">
+        
+            <ImageButton
+                android:id="@+id/full_sp_reset"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_samsung_refresh"
+                android:contentDescription="속도 피치 초기화" />
+        
+            <!-- 속도 조절 -->
+            <TextView
+                android:id="@+id/text_speed_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="속도: 1.00"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+    
+            <de.dlyt.yanndroid.oneui.widget.SeekBar
+                android:id="@+id/seekbar_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="290"
+                android:progress="100" />
+    
+            <!-- 피치 조절 -->
+            <TextView
+                android:id="@+id/text_pitch_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="피치: 1.00"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp" />
+    
+            <de.dlyt.yanndroid.oneui.widget.SeekBar
+                android:id="@+id/seekbar_pitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="290"
+                android:progress="100" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

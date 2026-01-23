@@ -1,0 +1,211 @@
+<resources>
+    <string name="app_name" translatable="false">OneUI 파일 매니저</string>
+
+    <string name="restore_advanced_development" translatable="false">개발자 홈</string>
+
+    <string name="home_setting" translatable="false">설정</string>
+    <string name="home_update" translatable="false">업데이트</string>
+    <string name="home_announce" translatable="false">공지</string>
+    <string name="home_power" translatable="false">전원 메뉴</string>
+    <string name="home_unit" translatable="false">유닛</string>
+    <string name="home_resort" translatable="false">순서 변경 (실험용)</string>
+
+    <string name="home_unit_camera" translatable="false">카메라</string>
+    <string name="home_unit_tts" translatable="false">TTS</string>
+    <string name="home_unit_ma" translatable="false">움직이는\n안드로이드</string>
+    <string name="home_unit_gyroscope" translatable="false">자이로스코프</string>
+    <string name="home_unit_applist" translatable="false">앱 목록</string>
+    <string name="home_unit_appuninstall" translatable="false">앱 제거</string>
+    <string name="home_unit_filemanager" translatable="false">파일 매니저</string>
+    <string name="home_unit_pdfviewer" translatable="false">pdf 뷰어</string>
+    <string name="home_unit_paintboard" translatable="false">그림판</string>
+    <string name="home_unit_encryptiondecryption" translatable="false">암호화, 복호화</string>
+    <string name="home_unit_memo" translatable="false">메모장</string>
+    <string name="home_unit_fileupload" translatable="false">파일 업로드</string>
+    <string name="home_unit_globalchat" translatable="false">글로벌 채팅</string>
+    <string name="home_unit_map" translatable="false">지도</string>
+    <string name="home_unit_cid" translatable="false">cid manager</string>
+    <string name="home_unit_phoneinfo" translatable="false">기기 정보</string>
+    <string name="home_unit_txt" translatable="false">txt 편집기</string>
+    <string name="home_unit_network" translatable="false">네트워크 상태</string>
+    <string name="home_unit_animatoo" translatable="false">Animatoo</string>
+    <string name="home_unit_screenrecord" translatable="false">화면 녹화</string>
+    <string name="home_unit_game" translatable="false">게임</string>
+    <string name="home_unit_bmi" translatable="false">BMI 계산기</string>
+    <string name="home_unit_ss" translatable="false">시스템 설정</string>
+    <string name="home_unit_protractor" translatable="false">각도기</string>
+    <string name="home_unit_internet3" translatable="false">인터넷 3.0</string>
+    <string name="home_unit_qr" translatable="false">QR 코드 도구</string>
+    <string name="home_unit_qr_generate" translatable="false">QR 코드 생성기</string>
+    <string name="home_unit_qr_generate_txt" translatable="false">QR 코드를 생성해서 공유 해보세요!</string>
+    <string name="home_unit_qr_scan" translatable="false">QR 코드 스캐너</string>
+    <string name="home_unit_qr_scan_txt" translatable="false">QR 뿐만 아니라 바코드도 인식할 수 있는 유닛입니다!</string>
+    <string name="home_unit_clock" translatable="false">시계</string>
+    <string name="home_unit_battery" translatable="false">배터리</string>
+    <string name="home_unit_calculator" translatable="false">계산기</string>
+    <string name="home_unit_batchfileeditor" translatable="false">일괄 파일명 편집기</string>
+    <string name="home_unit_vibrator" translatable="false">진동 테스트</string>
+    <string name="home_unit_unix" translatable="false">Unix 시간 계산기</string>
+    <string name="home_unit_activitystack" translatable="false">액티비티 스택</string>
+    <string name="home_unit_magnetic" translatable="false">금속 탐지기</string>
+    <string name="home_unit_notifytracer" translatable="false">Notify Tracer</string>
+    <string name="home_unit_camone" translatable="false">캠원</string>
+    <string name="home_unit_exception_first" translatable="false">시스템이 </string>
+    <string name="home_unit_exception_last" translatable="false">번이라는 잘못된 항목을 요청했습니다.</string>
+
+    <string name="home_unavailable_dismiss" translatable="false">확인</string>
+    <string name="home_unavailable_multiwindow" translatable="false">멀티 윈도우 사용 중에는 사용할 수 없는 유닛입니다.</string>
+    <string name="home_unavailable_android" translatable="false">안드로이드 버전이 매우 낮아서 사용할 수 없는 유닛입니다.</string>
+
+    <string name="home_update_notify_title" translatable="false">업데이트 발견</string>
+    <string name="home_update_notify_title_beta" translatable="false">베타 업데이트 발견</string>
+    <string name="home_update_notify_title_i" translatable="false">중요 업데이트 발견</string>
+    <string name="home_update_notify_title_beta_i" translatable="false">중요 베타 업데이트 발견</string>
+    <string name="home_update_notify_message_first" translatable="false">새로운 업데이트가 있습니다.</string>
+    <string name="home_update_notify_message_first_beta" translatable="false">새로운 베타 업데이트가 있습니다.</string>
+    <string name="home_update_notify_message_first_i" translatable="false">중요 업데이트가 있습니다.</string>
+    <string name="home_update_notify_message_first_beta_i" translatable="false">중요 베타 업데이트가 있습니다.</string>
+    <string name="home_update_notify_message_second" translatable="false">\n새 버전:</string>
+    <string name="home_update_notify_message_last" translatable="false">\n설치하시겠습니까?</string>
+    <string name="home_update_notify_message_last_i" translatable="false">\n확인을 누르면 업데이트를 시작합니다.\n계속하시겠습니까?</string>
+    <string name="home_update_notify_ok" translatable="false">확인</string>
+    <string name="home_update_notify_cancel" translatable="false">취소</string>
+
+    <string name="home_shut_title" translatable="false">잠시만 기다려주세요</string>
+    <string name="home_shut_message" translatable="false">종료중</string>
+
+    <string name="home_fcm_subscribe_success" translatable="false">인앱 업데이트 알림을 구독 했습니다</string>
+    <string name="home_fcm_subscribe_fail" translatable="false">구독할 수 없음</string>
+    <string name="home_fcm_unsubscribe_success" translatable="false">인앱 업데이트 알림을 구독하지 않았습니다</string>
+    <string name="home_fcm_unsubscribe_fail" translatable="false">구독 취소할 수 없음</string>
+    <string name="home_fcm_dialog_title" translatable="false">알림 수신 여부 확인</string>
+    <string name="home_fcm_dialog_message" translatable="false">Smart All in one을 사용하지 않을 때도 신규 공식 업데이트 배포 알림을 받으시겠습니까?</string>
+    <string name="home_fcm_dialog_ok" translatable="false">확인</string>
+    <string name="home_fcm_dialog_cancel" translatable="false">필수 알림만</string>
+
+    <string name="placeholder_text">Smart All in one에서 편안한 시간 되세요.</string>
+
+    <string name="camera_canceled" translatable="false">취소됨</string>
+    <string name="camera_saved_1" translatable="false">사진이 </string>
+    <string name="camera_saved_2" translatable="false"> 에 저장됩니다.</string>
+
+    <string name="tts_input" translatable="false">입력</string>
+    <string name="tts_speed" translatable="false">속도</string>
+    <string name="tts_delay" translatable="false">딜레이</string>
+    <string name="tts_pitch" translatable="false">강도</string>
+    <string name="tts_stt_start" translatable="false">음성 인식 시작</string>
+    <string name="tts_stt_stop" translatable="false">음성 인식 중지</string>
+    <string name="tts_save" translatable="false">음원 파일로 저장</string>
+    <string name="tts_play" translatable="false">재생</string>
+    <string name="tts_stop" translatable="false">중지</string>
+
+    <string name="app_searchhint" translatable="false">패키지 검색</string>
+
+    <string name="txt_save" translatable="false">저장</string>
+    <string name="txt_path" translatable="false">파일 경로</string>
+    <string name="txt_contents" translatable="false">내용</string>
+
+    <string name="file_audio" translatable="false">오디오</string>
+    <string name="file_documents" translatable="false">문서</string>
+    <string name="file_image" translatable="false">이미지</string>
+    <string name="file_videos" translatable="false">동영상</string>
+    <string name="file_downloads" translatable="false">다운로드</string>
+    <string name="file_tool_b1" translatable="false">닫기</string>
+    <string name="file_tool_b2" translatable="false">텍스트로 열기</string>
+    <string name="file_tool_b3" translatable="false">이동</string>
+    <string name="file_tool_b4" translatable="false">복사</string>
+    <string name="file_tool_b5" translatable="false">삭제</string>
+    <string name="file_tool_b6" translatable="false">이름 변경</string>
+    <string name="file_tool_b3_confirm" translatable="false">파일을 이동할 디렉토리로 이동해서 fab 버튼을 누르세요</string>
+    <string name="file_tool_b4_confirm" translatable="false">파일을 복사할 디렉토리로 이동해서 fab 버튼을 누르세요</string>
+    <string name="file_remove_message" translatable="false">이 파일을 삭제 하시겠습니까?</string>
+    <string name="file_remove_ok" translatable="false">삭제</string>
+    <string name="file_remove_cancel" translatable="false">취소</string>
+    <string name="file_rename_hint" translatable="false">새 이름 입력</string>
+    <string name="file_rename_cancel" translatable="false">취소</string>
+    <string name="file_rename_ok" translatable="false">확인</string>
+    <string name="file_rename_canceled" translatable="false">취소됨</string>
+
+    <string name="setting_language" translatable="false">언어 설정</string>
+
+    <string name="debug_title" translatable="false">예기치 않은 오류 발생!</string>
+    <string name="debug_subtitle" translatable="false">원하는 옵션을 선택하세요.</string>
+    <string name="debug_explain_1" translatable="false">오류를 무시하고 유닛 홈으로 이동합니다</string>
+    <string name="debug_explain_2" translatable="false">앱을 재시작 합니다</string>
+    <string name="debug_explain_3" translatable="false">앱을 정상적으로 종료합니다</string>
+    <string name="debug_explain_4" translatable="false">앱의 프로세스를 강제적으로 중단시킨 후 앱을 종료합니다\n액티비티 스택을 사용중인 경우, 같이 중단됩니다.</string>
+    <string name="debug_home" translatable="false">홈으로 이동</string>
+    <string name="debug_restart" translatable="false">앱 재시작</string>
+    <string name="debug_shutdown" translatable="false">앱 종료</string>
+    <string name="debug_killprocess" translatable="false">앱 프로세스 종료</string>
+    <string name="debug_copy" translatable="false">오류 로그 복사</string>
+
+    <string name="reboot_message" translatable="false">다시 시작 하는 중...</string>
+
+    <string name="accessibility_service_description" translatable="false">기기의 현재 포커스가 잡힌 액티비티를 표시합니다. 액티비티 스택 유닛에서 사용할 수 있습니다</string>
+
+    <string name="permission_group_access_label" translatable="false">Smart All in one</string>
+    <string name="permission_group_access_description" translatable="false">Smart All in one에 접근</string>
+
+    <string name="permission_data_permission_label" translatable="false">Smart All in one의 내부 데이터에 접근</string>
+    <string name="permission_data_permission_description" translatable="false">이 앱이 Smart All in one의 데이터에 접근할 수 있도록 허용합니다. 이 권한을 허용하면, Smart All in one의 데이터가 변경될 수 있습니다.</string>
+
+    <string name="banned_user_info_text" translatable="false">이 유저의 계정이 정지되었어요</string>
+    <string name="verified_account" translatable="false">인증된 계정</string>
+    <string name="edit_profile" translatable="false">프로필 수정</string>
+    <string name="biography" translatable="false">내 소개</string>
+    <string name="join_date" translatable="false">가입 날짜 : </string>
+    <string name="user_id" translatable="false">UID : </string>
+    <string name="oh_there_us_a_problem" translatable="false">문제가 생겼어요 :(</string>
+    <string name="follow" translatable="false">팔로우</string>
+    <string name="unfollow" translatable="false">언팔로우</string>
+    <string name="followers" translatable="false">팔로워</string>
+    <string name="online" translatable="false">온라인</string>
+    <string name="offline" translatable="false">오프라인</string>
+    <string name="reasons_may_be" translatable="false">이유는:</string>
+    <string name="err_no_internet" translatable="false">• 인터넷 연결이 약하거나 없는 것 같아요.</string>
+    <string name="err_app_maintenance" translatable="false">• 서버가 점검 중일 수도 있어요.</string>
+    <string name="err_problem_on_our_side" translatable="false">• 기술적인 문제일 수도 있어요.</string>
+    <string name="err_no_user">• 이 유저는 Skyline 사용자가 아니예요!</string>
+    <string name="seconds_ago" translatable="false">초 전</string>
+    <string name="minutes_ago" translatable="false">분 전</string>
+    <string name="hours_ago" translatable="false">시간 전</string>
+    <string name="days_ago" translatable="false">일 전</string>
+    <string name="status_text_seconds" translatable="false">초 전</string>
+    <string name="status_text_minutes" translatable="false">분 전</string>
+    <string name="status_text_hours" translatable="false">시간 전</string>
+    <string name="status_text_days" translatable="false">일 전</string>
+    <string name="status_text_week" translatable="false">주 전</string>
+    <string name="status_text_month" translatable="false">개월 전</string>
+    <string name="status_text_years" translatable="false">년 전</string>
+    <string name="following" translatable="false">팔로잉</string>
+    <string name="supporter" translatable="false">서포터</string>
+    <string name="moderator" translatable="false">매니저</string>
+    <string name="admin" translatable="false">관리자</string>
+
+    <string name="mmf_file_unselected">파일이 선택되지 않음</string>
+    <string name="mmf_file_loaded">파일 로드됨: %1$s</string>
+    <string name="mmf_file_loadError">파일 로드 실패: %1$s</string>
+    <string name="mmf_file_notFound">파일을 찾을 수 없음</string>
+    <string name="mmf_file_error">파일 읽는 중 오류 발생</string>
+    <string name="mmf_title">제목: %1$s</string>
+    <string name="mmf_artist">아티스트: %1$s</string>
+    <string name="mmf_copyright">저작권: %1$s</string>
+    <string name="mmf_genre">장르: %1$s</string>
+    <string name="mmf_etc">기타 정보: %1$s</string>
+    <string name="mmf_data_unknown">알 수 없음</string>
+    <string name="mmf_open">열기</string>
+    <string name="mmf_setting">설정</string>
+    <string name="mmf_setting_sound_quality">사운드 및 품질</string>
+    <string name="mmf_setting_saved_rate">저장되었습니다. 적용하려면 서비스를 재시작해야 합니다.</string>
+    <string name="mmf_init_success">초기화 되었습니다</string>
+    <string name="mmf_init_fail">초기화에 실패했습니다</string>
+    <string name="mmf_init_error">유효한 샘플레이트로 설정하세요</string>
+    <string name="mmf_play_unselected">먼저 파일을 선택하세요</string>
+    <string name="mmf_init_etc">기타 정보: -</string>
+    <string name="mmf_parse_error">메타데이터 파싱 오류</string>
+    <string name="mmf_init_title">제목: -</string>
+    <string name="mmf_init_artist">아티스트: -</string>
+    <string name="mmf_init_copyright">저작권: -</string>
+    <string name="mmf_init_genre">장르: -</string>
+</resources>

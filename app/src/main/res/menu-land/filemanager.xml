@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_samsung_search"
+        android:title="@string/action_search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/add_file"
+        android:icon="@drawable/ic_samsung_document"
+        android:title="파일 추가"
+        app:showAsAction="always" />
+        
+    <item
+        android:id="@+id/add_folder"
+        android:icon="@drawable/ic_samsung_folder"
+        android:title="폴더 추가"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/sort"
+        android:icon="@drawable/ic_samsung_list_filter"
+        android:title="정렬"
+        app:showAsAction="always" />
+        
+    <item
+        android:id="@+id/edit"
+        android:title="편집"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/vlc"
+        android:title="VLC로 열기"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/setting"
+        android:title="설정"
+        app:showAsAction="never" />
+</menu>

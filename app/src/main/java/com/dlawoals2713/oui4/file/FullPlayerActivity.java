@@ -23,8 +23,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.dlawoals2713.oui4.file.base.BaseThemeActivity;
 
 import java.util.Locale;
@@ -190,14 +188,9 @@ public class FullPlayerActivity extends BaseThemeActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // SeekBar 터치 시작 시 처리
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // SeekBar 터치 종료 시 처리
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         full_loop.setOnClickListener(v -> {
@@ -240,10 +233,9 @@ public class FullPlayerActivity extends BaseThemeActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) { }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) { }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         seekbar_pitch.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

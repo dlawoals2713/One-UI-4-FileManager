@@ -30,7 +30,6 @@ public class PlaceholderActivity extends BaseThemeActivity {
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
-        // 뒤로가기 눌렀을 때 HomeActivity에 신호 전달
         Intent intent = new Intent("com.dlawoals2713.HOME_BACK_PRESSED");
         sendBroadcast(intent);
     }

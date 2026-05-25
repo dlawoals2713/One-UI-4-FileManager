@@ -49,6 +49,10 @@ android {
 			universalApk false  // 모든 ABI를 포함하는 universal APK는 만들지 않음
 		}
 	}
+
+	buildFeatures {
+		viewBinding = true
+	}
 }
 
 dependencies {

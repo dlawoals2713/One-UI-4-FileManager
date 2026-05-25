@@ -58,7 +58,6 @@ public class ExceptionLogger {
             String currentTime = new SimpleDateFormat("yyyy-MM-dd a h:mm:ss", Locale.getDefault()).format(new Date());
             String logMessage = "[" + currentTime + "] Error in: " + className + " → " + throwable.toString() + "\n";
 
-            // StackTrace까지 기록하고 싶다면 ↓
             for (StackTraceElement element : throwable.getStackTrace()) {
                 logMessage += "    at " + element.toString() + "\n";
             }

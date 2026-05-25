@@ -15,11 +15,11 @@ import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.dlawoals2713.oui4.file.base.BaseThemeActivity;
+import com.dlawoals2713.oui4.file.databinding.FilemanagerVideoBinding;
 
 public class FilemanagerVideoActivity extends BaseThemeActivity {
+	private FilemanagerVideoBinding binding;
 	private static final int UI_OPTIONS = View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 
 	private void hideSystemUI() {
@@ -30,24 +30,18 @@ public class FilemanagerVideoActivity extends BaseThemeActivity {
 
 	private String url = "";
 
-	private LinearLayout linear1;
-
 	@Override
 	protected void onCreate(Bundle _savedInstanceState) {
 		super.onCreate(_savedInstanceState);
-		setContentView(R.layout.filemanager_video);
-		initialize(_savedInstanceState);
+		binding = FilemanagerVideoBinding.inflate(getLayoutInflater());
+		setContentView(binding.getRoot());
 		initializeLogic();
 	}
 
 	@SuppressLint("MissingSuperCall")
     @Override
 	public void onBackPressed() {
-		finishAndRemoveTask(); // 액티비티 종료 + 태스크(최근 앱)에서 제거
-	}
-
-	private void initialize(Bundle _savedInstanceState) {
-		linear1 = findViewById(R.id.linear1);
+		finishAndRemoveTask();
 	}
 
 	private void initializeLogic() {
@@ -77,7 +71,7 @@ public class FilemanagerVideoActivity extends BaseThemeActivity {
 		url = _url;
 		final VideoView vd = new VideoView(FilemanagerVideoActivity.this);
 		vd.setLayoutParams(new LinearLayout.LayoutParams(android.widget.LinearLayout.LayoutParams.MATCH_PARENT, android.widget.LinearLayout.LayoutParams.MATCH_PARENT));
-		linear1.addView(vd);
+		binding.linear1.addView(vd);
 		vd.setVideoURI(Uri.parse(url));
 		vd.setMediaController(new MediaController(this));
 		vd.requestFocus();

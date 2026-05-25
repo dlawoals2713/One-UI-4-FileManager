@@ -18,18 +18,16 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.Choreographer;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.media.session.MediaButtonReceiver;
 
 import com.dlawoals2713.oui4.file.base.BaseThemeActivity;
+import com.dlawoals2713.oui4.file.databinding.ActivityMmfPlayerBinding;
 import com.yamaha.smafsynth.m7.emu.DataParsers;
 import com.yamaha.smafsynth.m7.emu.EmuSmw7;
 
@@ -39,26 +37,11 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import de.dlyt.yanndroid.oneui.layout.ToolbarLayout;
-
 public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, EmuSmw7.ChannelDataListener {
+
+    private ActivityMmfPlayerBinding binding;
     private static final int PICK_MMF_FILE = 1;
-
-    private ImageButton initButton;
-    private ImageButton playButton;
-    private ImageButton stopButton;
-    private ImageButton releaseButton;
-    private TextView fileNameTextView;
-    private TextView timeTextView;
-    private SeekBar progressSeekBar;
-    private SeekBar volumeSeekBar;
-
-    private TextView titleTextView;
-    private TextView artistTextView;
-    private TextView copyrightTextView;
-    private TextView genreTextView;
-    private TextView miscTextView;
 
     private EmuSmw7 emuSmw7;
     private int sampleRate = 22050;
@@ -73,12 +56,12 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
     private Intent intent = new Intent();
     private MediaSessionCompat mediaSession;
-    private MediaControllerCompat mediaController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mmf_player);
+        binding = ActivityMmfPlayerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         ActivityCompat.requestPermissions(this,
                 new String[]{
@@ -125,24 +108,21 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
                     updateMediaSessionState();
                 }
             }
-
-            // 여기에 onSkipToNext(), onSkipToPrevious() 등 필요한 메서드를 추가할 수 있습니다.
         });
 
         mediaSession.setActive(true);
 
         try {
-            mediaController = new MediaControllerCompat(this, mediaSession.getSessionToken());
+            MediaControllerCompat mediaController = new MediaControllerCompat(this, mediaSession.getSessionToken());
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
-        // --- MediaSession 초기화 끝 ---
 
         Uri fileUri = getIntent().getData();
         if (fileUri != null) {
             try {
                 currentFileName = getFileNameFromUri(fileUri);
-                fileNameTextView.setText(currentFileName);
+                binding.textFileName.setText(currentFileName);
 
                 InputStream inputStream = getContentResolver().openInputStream(fileUri);
                 if (inputStream != null) {
@@ -172,39 +152,22 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
 
         sampleRate = Integer.parseInt(sp.getString("sr", "22050"));
 
-        fileNameTextView = findViewById(R.id.text_file_name);
-        fileNameTextView.setText(currentFileName);
+        binding.textFileName.setText(currentFileName);
 
-        titleTextView = findViewById(R.id.text_title);
-        artistTextView = findViewById(R.id.text_artist);
-        copyrightTextView = findViewById(R.id.text_copyright);
-        genreTextView = findViewById(R.id.text_genre);
-        miscTextView = findViewById(R.id.text_misc);
+        binding.buttonInit.setOnClickListener(this);
+        binding.buttonPlay.setOnClickListener(this);
+        binding.buttonStop.setOnClickListener(this);
+        binding.buttonRelease.setOnClickListener(this);
 
-        initButton = findViewById(R.id.button_init);
-        playButton = findViewById(R.id.button_play);
-        stopButton = findViewById(R.id.button_stop);
-        releaseButton = findViewById(R.id.button_release);
+        binding.seekbarProgress.setEnabled(false);
+        binding.seekbarVolume.setMax(127);
+        binding.seekbarVolume.setProgress(100);
+        binding.seekbarVolume.setOnSeekBarChangeListener(this);
 
-        initButton.setOnClickListener(this);
-        playButton.setOnClickListener(this);
-        stopButton.setOnClickListener(this);
-        releaseButton.setOnClickListener(this);
-
-        progressSeekBar = findViewById(R.id.seekbar_progress);
-        progressSeekBar.setEnabled(false);
-        volumeSeekBar = findViewById(R.id.seekbar_volume);
-        volumeSeekBar.setMax(127);
-        volumeSeekBar.setProgress(100);
-        volumeSeekBar.setOnSeekBarChangeListener(this);
-
-        timeTextView = findViewById(R.id.text_time);
-
-        ToolbarLayout toolbarLayout = findViewById(R.id.toolbar_view);
-        toolbarLayout.inflateToolbarMenu(R.menu.player);
-        toolbarLayout.getToolbarMenu().findItem(R.id.settings).setTitle(getString(R.string.mmf_setting));
-        toolbarLayout.setOnToolbarMenuItemClickListener(item -> {
-            int itemId = item.getItemId();  // item ID를 미리 저장해두기
+        binding.toolbarView.inflateToolbarMenu(R.menu.player);
+        binding.toolbarView.getToolbarMenu().findItem(R.id.settings).setTitle(getString(R.string.mmf_setting));
+        binding.toolbarView.setOnToolbarMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
 
             if (itemId == R.id.settings) {
                 setting();
@@ -256,7 +219,7 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
 
             parseAndDisplayMetadata();
             emuSmw7.startPlayback(mmfData, 100L, -1L, 15L, 32, 32);
-            emuSmw7.setPlaybackVolume(volumeSeekBar.getProgress());
+            emuSmw7.setPlaybackVolume(binding.seekbarVolume.getProgress());
 
             startPlaybackUpdates();
             updateButtonStates();
@@ -290,7 +253,7 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
                         inputStream.close();
 
                         currentFileName = getFileName(uri);
-                        fileNameTextView.setText(currentFileName);
+                        binding.textFileName.setText(currentFileName);
 
                         parseAndDisplayMetadata();
 
@@ -322,17 +285,17 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
 
     private void updateMetadataDisplay() {
         if (dataParser != null) {
-            titleTextView.setText(getString(R.string.mmf_title, (dataParser.getTitle().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getTitle())));
-            artistTextView.setText(getString(R.string.mmf_artist, (dataParser.getArtistName().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getArtistName())));
-            copyrightTextView.setText(getString(R.string.mmf_copyright, (dataParser.getCopyrightInfo().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getCopyrightInfo())));
-            genreTextView.setText(getString(R.string.mmf_genre, (dataParser.getGenre().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getGenre())));
-            miscTextView.setText(getString(R.string.mmf_etc, (dataParser.getMiscInfo().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getMiscInfo())));
+            binding.textTitle.setText(getString(R.string.mmf_title, (dataParser.getTitle().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getTitle())));
+            binding.textArtist.setText(getString(R.string.mmf_artist, (dataParser.getArtistName().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getArtistName())));
+            binding.textCopyright.setText(getString(R.string.mmf_copyright, (dataParser.getCopyrightInfo().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getCopyrightInfo())));
+            binding.textGenre.setText(getString(R.string.mmf_genre, (dataParser.getGenre().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getGenre())));
+            binding.textMisc.setText(getString(R.string.mmf_etc, (dataParser.getMiscInfo().isEmpty() ? getString(R.string.mmf_data_unknown) : dataParser.getMiscInfo())));
         } else {
-            titleTextView.setText(getString(R.string.mmf_title, getString(R.string.mmf_data_unknown)));
-            artistTextView.setText(getString(R.string.mmf_artist, getString(R.string.mmf_data_unknown)));
-            copyrightTextView.setText(getString(R.string.mmf_copyright, getString(R.string.mmf_data_unknown)));
-            genreTextView.setText(getString(R.string.mmf_genre, getString(R.string.mmf_data_unknown)));
-            miscTextView.setText(getString(R.string.mmf_etc, getString(R.string.mmf_data_unknown)));
+            binding.textTitle.setText(getString(R.string.mmf_title, getString(R.string.mmf_data_unknown)));
+            binding.textArtist.setText(getString(R.string.mmf_artist, getString(R.string.mmf_data_unknown)));
+            binding.textCopyright.setText(getString(R.string.mmf_copyright, getString(R.string.mmf_data_unknown)));
+            binding.textGenre.setText(getString(R.string.mmf_genre, getString(R.string.mmf_data_unknown)));
+            binding.textMisc.setText(getString(R.string.mmf_etc, getString(R.string.mmf_data_unknown)));
         }
     }
 
@@ -363,8 +326,8 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
             int cardBackground = getResources().getColor(R.color.mmf_cardBackground);
             int primaryColor = getResources().getColor(R.color.mmf_primaryColor);
             resetButtons(cardBackground);
-            initButton.setEnabled(true);
-            initButton.setImageTintList(ColorStateList.valueOf(primaryColor));
+            binding.buttonInit.setEnabled(true);
+            binding.buttonInit.setImageTintList(ColorStateList.valueOf(primaryColor));
             return;
         }
 
@@ -378,22 +341,22 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
 
         switch ((int) state) {
             case 0: // 초기화되지 않음
-                initButton.setEnabled(true);
-                initButton.setImageTintList(ColorStateList.valueOf(primaryColor));
+                binding.buttonInit.setEnabled(true);
+                binding.buttonInit.setImageTintList(ColorStateList.valueOf(primaryColor));
                 break;
             case 1: // 초기화됨 (재생 준비 상태)
                 if (mmfData != null) {
-                    playButton.setEnabled(true);
-                    playButton.setImageTintList(ColorStateList.valueOf(primaryColor));
+                    binding.buttonPlay.setEnabled(true);
+                    binding.buttonPlay.setImageTintList(ColorStateList.valueOf(primaryColor));
                 }
-                releaseButton.setEnabled(true);
-                releaseButton.setImageTintList(ColorStateList.valueOf(errorColor));
+                binding.buttonRelease.setEnabled(true);
+                binding.buttonRelease.setImageTintList(ColorStateList.valueOf(errorColor));
                 break;
             case 2: // 재생 중
-                stopButton.setEnabled(true);
-                stopButton.setImageTintList(ColorStateList.valueOf(primaryColor));
-                releaseButton.setEnabled(true);
-                releaseButton.setImageTintList(ColorStateList.valueOf(errorColor));
+                binding.buttonStop.setEnabled(true);
+                binding.buttonStop.setImageTintList(ColorStateList.valueOf(primaryColor));
+                binding.buttonRelease.setEnabled(true);
+                binding.buttonRelease.setImageTintList(ColorStateList.valueOf(errorColor));
                 break;
         }
     }
@@ -401,17 +364,17 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
     private void resetButtons(int defaultColor) {
         ColorStateList defaultTint = ColorStateList.valueOf(defaultColor);
 
-        initButton.setEnabled(false);
-        initButton.setImageTintList(defaultTint);
+        binding.buttonInit.setEnabled(false);
+        binding.buttonInit.setImageTintList(defaultTint);
 
-        playButton.setEnabled(false);
-        playButton.setImageTintList(defaultTint);
+        binding.buttonPlay.setEnabled(false);
+        binding.buttonPlay.setImageTintList(defaultTint);
 
-        stopButton.setEnabled(false);
-        stopButton.setImageTintList(defaultTint);
+        binding.buttonStop.setEnabled(false);
+        binding.buttonStop.setImageTintList(defaultTint);
 
-        releaseButton.setEnabled(false);
-        releaseButton.setImageTintList(defaultTint);
+        binding.buttonRelease.setEnabled(false);
+        binding.buttonRelease.setImageTintList(defaultTint);
     }
 
     private void startPlaybackUpdates() {
@@ -426,11 +389,10 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
                     long length = emuSmw7.getAudioLength();
 
                     if (length > 0) {
-                        progressSeekBar.setMax((int) length);
-                        progressSeekBar.setProgress((int) position);
+                        binding.seekbarProgress.setMax((int) length);
+                        binding.seekbarProgress.setProgress((int) position);
 
-                        timeTextView.setText(
-                                formatTime(position) + " / " + formatTime(length));
+                        binding.textTime.setText(formatTime(position) + " / " + formatTime(length));
                     }
                 }
 
@@ -460,14 +422,13 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        if (seekBar == volumeSeekBar && emuSmw7 != null) {
+        if (seekBar == binding.seekbarVolume && emuSmw7 != null) {
             emuSmw7.setPlaybackVolume(progress);
         }
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {}
-
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {}
 
@@ -522,7 +483,6 @@ public class MMFPlayerActivity extends BaseThemeActivity implements View.OnClick
         return displayName;
     }
 
-    // ChannelDataListener 구현
     @Override
     public void onChannelDataReady(int leftChannelValue, int rightChannelValue) {
         // 여기에 오디오 채널 데이터를 처리하는 코드를 추가할 수 있습니다.

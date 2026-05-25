@@ -7,7 +7,6 @@ import static com.dlawoals2713.oui4.file.Setting.getFileSort;
 import static com.dlawoals2713.oui4.file.Setting.getFileTitle;
 import static com.dlawoals2713.oui4.file.Setting.getFileVLCNetworkBuffer;
 import static com.dlawoals2713.oui4.file.Setting.getFileVideo;
-import static com.dlawoals2713.oui4.file.Setting.getUnitSplit;
 import static com.dlawoals2713.oui4.file.Setting.setFileCache;
 import static com.dlawoals2713.oui4.file.Setting.setFileImage;
 import static com.dlawoals2713.oui4.file.Setting.setFileSVBar;
@@ -26,7 +25,6 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -34,27 +32,20 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.dlawoals2713.oui4.file.base.BaseThemeActivity;
+import com.dlawoals2713.oui4.file.databinding.SettingBinding;
 
 import de.dlyt.yanndroid.oneui.dialog.AlertDialog;
 import de.dlyt.yanndroid.oneui.layout.ToolbarLayout;
-import de.dlyt.yanndroid.oneui.widget.Switch;
 
 public class SettingActivity extends BaseThemeActivity {
-	private Switch unit_split;
-	private TextView updatelog;
-	private TextView textview12;
-	private TextView textview13;
-	private TextView textview14;
-	private TextView textview15;
-	private TextView textview16;
-	private TextView textview17;
-	private TextView textview18;
+	private SettingBinding binding;
 	private Intent intent = new Intent();
 
 	@Override
 	protected void onCreate(Bundle _savedInstanceState) {
 		super.onCreate(_savedInstanceState);
-		setContentView(R.layout.setting);
+		binding = SettingBinding.inflate(getLayoutInflater());
+		setContentView(binding.getRoot());
 		initialize(_savedInstanceState);
 		
 		if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
@@ -81,23 +72,12 @@ public class SettingActivity extends BaseThemeActivity {
 			}
 		});
 
-		TextView themeToggle = findViewById(R.id.theme_toggle);
-		themeToggle.setText((mUseOUI4Theme ? "OneUI 3" : "OneUI 4") + " 테마로 변경");
-		themeToggle.setOnClickListener(_view -> {
+		binding.themeToggle.setText((mUseOUI4Theme ? "OneUI 3" : "OneUI 4") + " 테마로 변경");
+		binding.themeToggle.setOnClickListener(_view -> {
 			switchOUITheme();
 		});
 
-		unit_split = findViewById(R.id.unit_split);
-		updatelog = findViewById(R.id.updatelog);
-		textview12 = findViewById(R.id.textview12);
-		textview13 = findViewById(R.id.textview13);
-		textview14 = findViewById(R.id.textview14);
-		textview15 = findViewById(R.id.textview15);
-		textview16 = findViewById(R.id.textview16);
-		textview17 = findViewById(R.id.textview17);
-		textview18 = findViewById(R.id.textview18);
-
-		textview12.setOnClickListener(_view -> {
+		binding.textview12.setOnClickListener(_view -> {
 			final String[] methods = {"유닛 이름", "폴더 이름"};
 			String savedMethod = String.valueOf(getFileTitle(SettingActivity.this));
 			final int[] checkedItem = {savedMethod.equals("0") ? 0 : 1};
@@ -107,7 +87,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.setSingleChoiceItems(methods, checkedItem[0], (dialog, which) -> checkedItem[0] = which)
 					.setPositiveButton("확인", (dialog, which) -> {
 						setFileTitle(this, String.valueOf(checkedItem[0]));
-						textview12.setText("기본 타이틀 표시 방식: " + methods[checkedItem[0]]);
+						binding.textview12.setText("기본 타이틀 표시 방식: " + methods[checkedItem[0]]);
 					})
 					.setNegativeButton("취소", (dialog, which) -> {})
 					.setCancelable(false)
@@ -115,7 +95,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.show();
 		});
 
-		textview13.setOnClickListener(_view -> {
+		binding.textview13.setOnClickListener(_view -> {
 			final String[] methods = {"기본 정렬", "폴더 우선 정렬"};
 			String savedMethod = String.valueOf(getFileSort(SettingActivity.this));
 			final int[] checkedItem = {savedMethod.equals("0") ? 0 : 1};
@@ -125,7 +105,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.setSingleChoiceItems(methods, checkedItem[0], (dialog, which) -> checkedItem[0] = which)
 					.setPositiveButton("확인", (dialog, which) -> {
 						setFileSort(this, String.valueOf(checkedItem[0]));
-						textview13.setText("기본 정렬 방식: " + methods[checkedItem[0]]);
+						binding.textview13.setText("기본 정렬 방식: " + methods[checkedItem[0]]);
 					})
 					.setNegativeButton("취소", (dialog, which) -> {})
 					.setCancelable(false)
@@ -133,7 +113,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.show();
 		});
 
-		textview14.setOnClickListener(_view -> {
+		binding.textview14.setOnClickListener(_view -> {
 			final String[] methods = {"폴더 이동 시", "위로 당길 때만"};
 			String savedMethod = String.valueOf(getFileCache(SettingActivity.this));
 			final int[] checkedItem = {savedMethod.equals("0") ? 0 : 1};
@@ -143,7 +123,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.setSingleChoiceItems(methods, checkedItem[0], (dialog, which) -> checkedItem[0] = which)
 					.setPositiveButton("확인", (dialog, which) -> {
 						setFileCache(this, String.valueOf(checkedItem[0]));
-						textview14.setText("기본 캐시 정리 방식: " + methods[checkedItem[0]]);
+						binding.textview14.setText("기본 캐시 정리 방식: " + methods[checkedItem[0]]);
 					})
 					.setNegativeButton("취소", (dialog, which) -> {})
 					.setCancelable(false)
@@ -151,7 +131,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.show();
 		});
 
-		textview15.setOnClickListener(_view -> {
+		binding.textview15.setOnClickListener(_view -> {
 			final String[] methods = {"한 이미지만 보기", "여러 이미지 같이 보기", "항상 묻기"};
 			String savedMethod = String.valueOf(getFileImage(SettingActivity.this));
 			final int[] checkedItem = {savedMethod.equals("0") ? 0 : savedMethod.equals("1") ? 1 : 2};
@@ -161,7 +141,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.setSingleChoiceItems(methods, checkedItem[0], (dialog, which) -> checkedItem[0] = which)
 					.setPositiveButton("확인", (dialog, which) -> {
 						setFileImage(this, String.valueOf(checkedItem[0]));
-						textview15.setText("기본 이미지 표시 방식: " + methods[checkedItem[0]]);
+						binding.textview15.setText("기본 이미지 표시 방식: " + methods[checkedItem[0]]);
 					})
 					.setNegativeButton("취소", (dialog, which) -> {})
 					.setCancelable(false)
@@ -169,7 +149,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.show();
 		});
 
-		textview16.setOnClickListener(_view -> {
+		binding.textview16.setOnClickListener(_view -> {
 			final String[] methods = {"VLC 플레이어", "기본 플레이어", "항상 묻기"};
 			String savedMethod = String.valueOf(getFileVideo(SettingActivity.this));
 			final int[] checkedItem = {savedMethod.equals("0") ? 0 : savedMethod.equals("1") ? 1 : 2};
@@ -179,7 +159,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.setSingleChoiceItems(methods, checkedItem[0], (dialog, which) -> checkedItem[0] = which)
 					.setPositiveButton("확인", (dialog, which) -> {
 						setFileVideo(this, String.valueOf(checkedItem[0]));
-						textview16.setText("기본 동영상 표시 방식: " + methods[checkedItem[0]]);
+						binding.textview16.setText("기본 동영상 표시 방식: " + methods[checkedItem[0]]);
 					})
 					.setNegativeButton("취소", (dialog, which) -> {})
 					.setCancelable(false)
@@ -187,7 +167,7 @@ public class SettingActivity extends BaseThemeActivity {
 					.show();
 		});
 
-		textview17.setOnClickListener(_view -> {
+		binding.textview17.setOnClickListener(_view -> {
 			String currentValue = getFileVLCNetworkBuffer(SettingActivity.this);
 
 			final EditText input = new EditText(SettingActivity.this);
@@ -227,7 +207,7 @@ public class SettingActivity extends BaseThemeActivity {
 						}
 
 						setFileVLCNetworkBuffer(SettingActivity.this, String.valueOf(newValue));
-						textview17.setText("VLC 네트워크 버퍼 크기: " + newValue + "ms");
+						binding.textview17.setText("VLC 네트워크 버퍼 크기: " + newValue + "ms");
 						dialog.dismiss(); // 성공 시 다이얼로그 닫기
 					} catch (NumberFormatException e) {
 						SketchwareUtil.showMessage(SettingActivity.this, "올바른 숫자를 입력해주세요.");
@@ -240,7 +220,7 @@ public class SettingActivity extends BaseThemeActivity {
 			dialog.show();
 		});
 
-		textview18.setOnClickListener(_view -> {
+		binding.textview18.setOnClickListener(_view -> {
 			String currentValue = getFileSVBar(SettingActivity.this);
 
 			final EditText input = new EditText(SettingActivity.this);
@@ -281,7 +261,7 @@ public class SettingActivity extends BaseThemeActivity {
 						}
 
 						setFileSVBar(SettingActivity.this, String.valueOf(newValue));
-						textview18.setText("사운드 비주얼라이저 막대 개수: " + newValue + "개");
+						binding.textview18.setText("사운드 비주얼라이저 막대 개수: " + newValue + "개");
 						dialog.dismiss(); // 성공 시 다이얼로그 닫기
 					} catch (NumberFormatException e) {
 						SketchwareUtil.showMessage(SettingActivity.this, "올바른 숫자를 입력해주세요.");
@@ -293,8 +273,8 @@ public class SettingActivity extends BaseThemeActivity {
 			dialog.setButton(AlertDialog.BUTTON_POSITIVE, "확인", (DialogInterface.OnClickListener) null);
 			dialog.show();
 		});
-		
-		updatelog.setOnClickListener(_view -> {
+
+		binding.updatelog.setOnClickListener(_view -> {
             intent.setClass(getApplicationContext(), UpdatelogappActivity.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.slide_out_right);
@@ -309,51 +289,40 @@ public class SettingActivity extends BaseThemeActivity {
 	}
 
 	public void _load_setting() {
-		if (getFileTitle(this) == 1) {
-			textview12.setText("기본 타이틀 표시 방식: 폴더 이름");
-		} else {
-			textview12.setText("기본 타이틀 표시 방식: 유닛 이름");
-		}
+		if (getFileTitle(this) == 1) binding.textview12.setText("기본 타이틀 표시 방식: 폴더 이름");
+		else binding.textview12.setText("기본 타이틀 표시 방식: 유닛 이름");
 
-		if (getFileSort(this) == 1) {
-			textview13.setText("기본 정렬 방식: 폴더 우선 정렬");
-		} else {
-			textview13.setText("기본 정렬 방식: 기본 정렬");
-		}
+		if (getFileSort(this) == 1) binding.textview13.setText("기본 정렬 방식: 폴더 우선 정렬");
+		else binding.textview13.setText("기본 정렬 방식: 기본 정렬");
 
-		if (getFileCache(this) == 1) {
-			textview14.setText("기본 캐시 정리 방식: 위로 당길 때만");
-		} else {
-			textview14.setText("기본 캐시 정리 방식: 폴더 이동 시");
-		}
+		if (getFileCache(this) == 1) binding.textview14.setText("기본 캐시 정리 방식: 위로 당길 때만");
+		else binding.textview14.setText("기본 캐시 정리 방식: 폴더 이동 시");
 
 		switch (getFileImage(this)) {
             case 1:
-				textview15.setText("기본 이미지 표시 방식: 여러 이미지 같이 보기");
+				binding.textview15.setText("기본 이미지 표시 방식: 여러 이미지 같이 보기");
 				break;
 			case 2:
-				textview15.setText("기본 이미지 표시 방식: 항상 묻기");
+				binding.textview15.setText("기본 이미지 표시 방식: 항상 묻기");
 				break;
 			default:
-				textview15.setText("기본 이미지 표시 방식: 한 이미지만 보기");
+				binding.textview15.setText("기본 이미지 표시 방식: 한 이미지만 보기");
 				break;
 		}
 
 		switch (getFileVideo(this)) {
 			case 1:
-				textview16.setText("기본 동영상 표시 방식: 기본 플레이어");
+				binding.textview16.setText("기본 동영상 표시 방식: 기본 플레이어");
 				break;
 			case 2:
-				textview16.setText("기본 동영상 표시 방식: 항상 묻기");
+				binding.textview16.setText("기본 동영상 표시 방식: 항상 묻기");
 				break;
 			default:
-				textview16.setText("기본 동영상 표시 방식: VLC 플레이어");
+				binding.textview16.setText("기본 동영상 표시 방식: VLC 플레이어");
 				break;
 		}
 
-		textview17.setText("VLC 네트워크 버퍼 크기: " + getFileVLCNetworkBuffer(this) + "ms");
-		textview18.setText("사운드 비주얼라이저 막대 개수: " + getFileSVBar(this) + "개");
-
-		unit_split.setChecked(getUnitSplit(this));
+		binding.textview17.setText("VLC 네트워크 버퍼 크기: " + getFileVLCNetworkBuffer(this) + "ms");
+		binding.textview18.setText("사운드 비주얼라이저 막대 개수: " + getFileSVBar(this) + "개");
 	}
 }

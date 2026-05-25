@@ -127,12 +127,4 @@ public class Setting {
             return "200"; // 오류
         }
     }
-
-    public static boolean getUnitSplit(Context context) {
-        if (FileUtil.isExistFile(FileUtil.getPackageDataDir(context).concat("/Setting/unit_split.txt"))) {
-            return FileUtil.readFile(FileUtil.getPackageDataDir(context).concat("/Setting/unit_split.txt")).equals("true");
-        } else {
-            return true;
-        }
-    }
 }

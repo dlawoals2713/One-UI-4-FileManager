@@ -17,10 +17,8 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,8 +26,10 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.dlawoals2713.oui4.file.base.BaseThemeActivity;
+import com.dlawoals2713.oui4.file.databinding.FilemanagerImageBinding;
 
 public class FilemanagerSingleImageActivity extends BaseThemeActivity {
+	private FilemanagerImageBinding binding;
 	private static final int UI_OPTIONS = View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 
 	private void hideSystemUI() {
@@ -41,30 +41,23 @@ public class FilemanagerSingleImageActivity extends BaseThemeActivity {
 	private boolean hide = false;
 	private boolean darkmode = false;
 	
-	private HorizontalScrollView hscroll1;
-	private LinearLayout linear2;
-	private TextView textview1;
-	
 	@Override
 	protected void onCreate(Bundle _savedInstanceState) {
 		super.onCreate(_savedInstanceState);
-		setContentView(R.layout.filemanager_image);
+		binding = FilemanagerImageBinding.inflate(getLayoutInflater());
+		setContentView(binding.getRoot());
 		initialize(_savedInstanceState);
 		initializeLogic();
 	}
 	
 	private void initialize(Bundle _savedInstanceState) {
-		hscroll1 = findViewById(R.id.hscroll1);
-		linear2 = findViewById(R.id.linear2);
-		textview1 = findViewById(R.id.textview1);
-		
-		textview1.setOnLongClickListener(_view -> {
+		binding.textview1.setOnLongClickListener(_view -> {
             if (Build.VERSION.SDK_INT >= 26) {
 				//Trigger PiP mode
 				try {
 					Rational rational = new
-					Rational(linear2.getWidth(),
-						linear2.getHeight());
+					Rational(binding.linear2.getWidth(),
+							binding.linear2.getHeight());
 						PictureInPictureParams mParams =
 							new PictureInPictureParams.Builder()
 							.setAspectRatio(rational)
@@ -78,10 +71,10 @@ public class FilemanagerSingleImageActivity extends BaseThemeActivity {
             }
             return true;
         });
-		
-		textview1.setOnClickListener(_view -> {
-            linear2.setBackgroundColor(0xFF000000);
-            hscroll1.setVisibility(View.GONE);
+
+		binding.textview1.setOnClickListener(_view -> {
+			binding.linear2.setBackgroundColor(0xFF000000);
+			binding.hscroll1.setVisibility(View.GONE);
             hide = true;
         });
 	}
@@ -90,8 +83,8 @@ public class FilemanagerSingleImageActivity extends BaseThemeActivity {
         ZoomableImageView zoom1 = new ZoomableImageView(FilemanagerSingleImageActivity.this);
 		zoom1.setScaleType(ImageView.ScaleType.FIT_CENTER);
 		zoom1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT));
-		linear2.addView(zoom1);
-		textview1.setText(getIntent().getStringExtra("title"));
+		binding.linear2.addView(zoom1);
+		binding.textview1.setText(getIntent().getStringExtra("title"));
 		Glide.with(this) // 액티비티 컨텍스트 사용
 				.load(getIntent().getStringExtra("path")) // 파일 경로 로드
 				.override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
@@ -122,9 +115,7 @@ public class FilemanagerSingleImageActivity extends BaseThemeActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		// Glide 메모리 캐시를 즉시 삭제합니다.
 		Glide.get(this).clearMemory();
-		// Glide 디스크 캐시는 백그라운드 스레드에서 삭제합니다.
 		new Thread(() -> Glide.get(this).clearDiskCache()).start();
 	}
 	
@@ -132,11 +123,11 @@ public class FilemanagerSingleImageActivity extends BaseThemeActivity {
     @Override
 	public void onBackPressed() {
 		if (hide) {
-			hscroll1.setVisibility(View.VISIBLE);
+			binding.hscroll1.setVisibility(View.VISIBLE);
 			if (darkmode) {
-				linear2.setBackgroundColor(0xFF000000);
+				binding.linear2.setBackgroundColor(0xFF000000);
 			} else {
-				linear2.setBackgroundColor(Color.TRANSPARENT);
+				binding.linear2.setBackgroundColor(Color.TRANSPARENT);
 			}
 			hide = false;
 		} else {
@@ -536,9 +527,6 @@ public class FilemanagerSingleImageActivity extends BaseThemeActivity {
     public void _DarkMode() {
 		int nightModeFlags = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 		if (nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
-			hscroll1.setBackgroundColor(0xFF000000);
-			linear2.setBackgroundColor(0xFF000000);
-			textview1.setTextColor(0xFFFFFFFF);
 			darkmode = true;
 		}
 	}

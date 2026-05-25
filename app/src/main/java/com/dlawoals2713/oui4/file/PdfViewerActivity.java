@@ -16,22 +16,20 @@ import android.os.ParcelFileDescriptor;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.dlawoals2713.oui4.file.base.BaseThemeActivity;
+import com.dlawoals2713.oui4.file.databinding.PdfViewerBinding;
 
 import java.io.File;
 import java.util.ArrayList;
 
 
 public class PdfViewerActivity extends BaseThemeActivity {
+	private PdfViewerBinding binding;
     private void handleException(Exception e) {
         showToast(e.getMessage());
 		ExceptionLogger.log(e, getClass().getSimpleName());
@@ -49,37 +47,14 @@ public class PdfViewerActivity extends BaseThemeActivity {
 	private double f = 0;
 	private String pdfFile = "";
 	
-	private ArrayList<String> s = new ArrayList<>();
-	private ArrayList<String> list_string = new ArrayList<>();
-	
-	private LinearLayout background;
-	private LinearLayout linear1;
-	private LinearLayout controlle_linear;
-	private LinearLayout edit_linear;
-	private LinearLayout back;
-	private LinearLayout linear5;
-	private LinearLayout linear6;
-	private LinearLayout linear7;
-	private LinearLayout next;
-	private LinearLayout linear9;
-	private LinearLayout linear10;
-	private LinearLayout linear12;
-	private LinearLayout linear13;
-	private ImageView imageview1;
-	private TextView textview1;
-	private ImageView imageview2;
-	private ImageView imageview5;
-	private ImageView imageview6;
-	private ImageView imageview4;
-	private EditText edittext1;
-	
 	private Intent fp = new Intent(Intent.ACTION_GET_CONTENT);
 	
     @Override
 	protected void onCreate(Bundle _savedInstanceState) {
 		super.onCreate(_savedInstanceState);
 		try {
-            setContentView(R.layout.pdf_viewer);
+			binding = PdfViewerBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 		    initialize(_savedInstanceState);
 		
 		    if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
@@ -101,68 +76,48 @@ public class PdfViewerActivity extends BaseThemeActivity {
 	}
 	
 	private void initialize(Bundle _savedInstanceState) {
-		background = findViewById(R.id.background);
-		linear1 = findViewById(R.id.linear1);
-		controlle_linear = findViewById(R.id.controlle_linear);
-		edit_linear = findViewById(R.id.edit_linear);
-		back = findViewById(R.id.back);
-		linear5 = findViewById(R.id.linear5);
-		linear6 = findViewById(R.id.linear6);
-		linear7 = findViewById(R.id.linear7);
-		next = findViewById(R.id.next);
-		linear9 = findViewById(R.id.linear9);
-		linear10 = findViewById(R.id.linear10);
-		linear12 = findViewById(R.id.linear12);
-		linear13 = findViewById(R.id.linear13);
-		imageview1 = findViewById(R.id.imageview1);
-		textview1 = findViewById(R.id.textview1);
-		imageview2 = findViewById(R.id.imageview2);
-		imageview5 = findViewById(R.id.imageview5);
-		imageview6 = findViewById(R.id.imageview6);
-		imageview4 = findViewById(R.id.imageview4);
-		edittext1 = findViewById(R.id.edittext1);
 		fp.setType("*/*");
 		fp.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
 		
-		back.setOnClickListener(_view -> {
+		binding.back.setOnClickListener(_view -> {
             if (page > 0) {
                 page--;
                 _display(page);
-                textview1.setText(String.valueOf((long)(page + 1)).concat("/".concat(String.valueOf((long)(pageCount)))));
+				binding.textview1.setText(String.valueOf((long)(page + 1)).concat("/".concat(String.valueOf((long)(pageCount)))));
             }
         });
-		
-		next.setOnClickListener(_view -> {
+
+		binding.next.setOnClickListener(_view -> {
             if (page < (pageCount - 1)) {
                 page++;
                 _display(page);
-                textview1.setText(String.valueOf((long)(page + 1)).concat("/".concat(String.valueOf((long)(pageCount)))));
+				binding.textview1.setText(String.valueOf((long)(page + 1)).concat("/".concat(String.valueOf((long)(pageCount)))));
             }
         });
-		
-		linear10.setOnClickListener(_view -> startActivityForResult(fp, REQ_CD_FP));
-		
-		linear13.setOnClickListener(_view -> {
+
+		binding.linear10.setOnClickListener(_view -> startActivityForResult(fp, REQ_CD_FP));
+
+		binding.linear13.setOnClickListener(_view -> {
             if (n == 0) {
                 n++;
-                edit_linear.setVisibility(View.VISIBLE);
-                imageview6.setImageResource(de.dlyt.yanndroid.oneui.R.drawable.ic_samsung_arrow_down);
+				binding.editLinear.setVisibility(View.VISIBLE);
+				binding.imageview6.setImageResource(de.dlyt.yanndroid.oneui.R.drawable.ic_samsung_arrow_down);
             } else {
                 n--;
-                edit_linear.setVisibility(View.GONE);
-                imageview6.setImageResource(de.dlyt.yanndroid.oneui.R.drawable.ic_samsung_arrow_up);
+				binding.editLinear.setVisibility(View.GONE);
+				binding.imageview6.setImageResource(de.dlyt.yanndroid.oneui.R.drawable.ic_samsung_arrow_up);
             }
         });
-		
-		imageview4.setOnClickListener(_view -> {
-            if (!edittext1.getText().toString().isEmpty()) {
-                if ((Double.parseDouble(edittext1.getText().toString()) > 0) && (Double.parseDouble(edittext1.getText().toString()) < (1 + pageCount))) {
-                    page = Double.parseDouble(edittext1.getText().toString()) - 1;
+
+		binding.imageview4.setOnClickListener(_view -> {
+            if (!binding.edittext1.getText().toString().isEmpty()) {
+                if ((Double.parseDouble(binding.edittext1.getText().toString()) > 0) && (Double.parseDouble(binding.edittext1.getText().toString()) < (1 + pageCount))) {
+                    page = Double.parseDouble(binding.edittext1.getText().toString()) - 1;
                     _display(page);
-                    textview1.setText(edittext1.getText().toString().concat("/".concat(String.valueOf((long)(pageCount)))));
-                    edit_linear.setVisibility(View.GONE);
+					binding.textview1.setText(binding.edittext1.getText().toString().concat("/".concat(String.valueOf((long)(pageCount)))));
+					binding.editLinear.setVisibility(View.GONE);
                     n = 0;
-                    imageview5.setImageResource(de.dlyt.yanndroid.oneui.R.drawable.ic_samsung_arrow_up);
+					binding.imageview5.setImageResource(de.dlyt.yanndroid.oneui.R.drawable.ic_samsung_arrow_up);
                 }
             }
         });
@@ -172,18 +127,18 @@ public class PdfViewerActivity extends BaseThemeActivity {
 		_DarkMode();
 		touch=new
 		ZoomableImageView(this);
-		linear1.addView(touch);
+		binding.linear1.addView(touch);
 		n = 0;
 		f = 0;
-		edit_linear.setVisibility(View.GONE);
+		binding.editLinear.setVisibility(View.GONE);
 		pdfFile = getIntent().getStringExtra("f");
 		page = 0;
 		try {
 			renderer = new PdfRenderer(new ParcelFileDescriptor(ParcelFileDescriptor.open(new File(pdfFile), ParcelFileDescriptor.MODE_READ_ONLY)));
 			pageCount = renderer.getPageCount();
 			_display(page);
-		} catch (Exception e){ }
-		textview1.setText(String.valueOf((long)(page + 1)).concat("/".concat(String.valueOf((long)(pageCount)))));
+		} catch (Exception ignored){ }
+		binding.textview1.setText(String.valueOf((long)(page + 1)).concat("/".concat(String.valueOf((long)(pageCount)))));
 	}
 	
 	@Override
@@ -205,7 +160,7 @@ public class PdfViewerActivity extends BaseThemeActivity {
                 }
                 n = 0;
                 f = 0;
-                edit_linear.setVisibility(View.GONE);
+				binding.editLinear.setVisibility(View.GONE);
                 pdfFile = _filePath.get(0);
                 page = 0;
                 try {
@@ -214,7 +169,7 @@ public class PdfViewerActivity extends BaseThemeActivity {
                     _display(page);
                 } catch (Exception ignored) {
                 }
-                textview1.setText(String.valueOf((long) (page + 1)).concat("/".concat(String.valueOf((long) (pageCount)))));
+				binding.textview1.setText(String.valueOf((long) (page + 1)).concat("/".concat(String.valueOf((long) (pageCount)))));
             }
         }
 	}
@@ -222,8 +177,6 @@ public class PdfViewerActivity extends BaseThemeActivity {
 	public void _display(final double _page) {
 		PdfRenderer.Page page = renderer.openPage((int)_page);
 
-		// 화면의 실제 너비와 높이 픽셀 값을 가져옵니다.
-		// SketchwareUtil 클래스에 이 함수들이 정의되어 있다고 가정합니다.
 		int displayWidth = SketchwareUtil.getDisplayWidthPixels(this)*2;
 		int displayHeight = SketchwareUtil.getDisplayHeightPixels(this)*2;
 
@@ -262,7 +215,7 @@ public class PdfViewerActivity extends BaseThemeActivity {
 
 		touch.setImageBitmap(mBitmap);
 		page.close();
-		textview1.setText(String.valueOf((long)(_page + 1)).concat("/").concat(String.valueOf((long)(pageCount)))); // 페이지 번호 표시를 기존처럼 유지
+		binding.textview1.setText(String.valueOf((long)(_page + 1)).concat("/").concat(String.valueOf((long)(pageCount)))); // 페이지 번호 표시를 기존처럼 유지
 	}
 
 	private PdfRenderer renderer;
@@ -440,7 +393,7 @@ public class PdfViewerActivity extends BaseThemeActivity {
 	public void _DarkMode() {
 		int nightModeFlags = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 		if (nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
-			background.setBackgroundColor(0xFF000000);
+			binding.background.setBackgroundColor(0xFF000000);
 		}
 	}
 

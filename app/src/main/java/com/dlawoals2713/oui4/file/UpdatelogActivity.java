@@ -1,8 +1,5 @@
 package com.dlawoals2713.oui4.file;
 
-import android.app.Activity;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dlawoals2713.oui4.file.base.BaseThemeActivity;
+import com.dlawoals2713.oui4.file.databinding.ActivityUpdatelogBinding;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -25,44 +23,36 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import de.dlyt.yanndroid.oneui.layout.ToolbarLayout;
 import de.dlyt.yanndroid.oneui.view.Snackbar;
 
 public class UpdatelogActivity extends BaseThemeActivity {
+	private ActivityUpdatelogBinding binding;
     private String lastUpdate = "";
 	private double app = 0;
 
     private ArrayList<HashMap<String, Object>> list_map = new ArrayList<>();
-	
-	private RecyclerView recyclerview1;
-	private MediaPlayer mp4;
+
 
     @Override
 	protected void onCreate(Bundle _savedInstanceState) {
 		super.onCreate(_savedInstanceState);
-		setContentView(R.layout.updatelog);
-		initialize(_savedInstanceState);
+		binding = ActivityUpdatelogBinding.inflate(getLayoutInflater());
+		setContentView(binding.getRoot());
 		initializeLogic();
 	}
-	
-	private void initialize(Bundle _savedInstanceState) {
-		recyclerview1 = findViewById(R.id.recyclerview1);
-        SharedPreferences sp = getSharedPreferences("insight1", Activity.MODE_PRIVATE);
-	}
-	
+
 	private void initializeLogic() {
-        ToolbarLayout toolbarLayout = findViewById(R.id.toolbar_view);
-		toolbarLayout.setNavigationButtonOnClickListener(view -> onBackPressed());
+		binding.toolbarView.setNavigationButtonOnClickListener(view -> getOnBackPressedDispatcher().onBackPressed());
 		app = Double.parseDouble(getIntent().getStringExtra("app"));
 		lastUpdate =
 				"• 6.5(1)\n- Smart All in one 6.5 Test 51 AS 에서 클론\n- One UI 3과 One UI 4 전환 기능 추가\n- 스토리지 서버 삭제\n\n" +
-						"• 6.5(6559)\n- Smart All in one 6.5 Test 59 AS 에서 파일 최적화 코드 클론\n- /saio 폴더가 없을 때 Drawer의 saio 사용자 저장소를 숨기도록 변경";
+						"• 6.5(6559)\n- Smart All in one 6.5 Test 59 AS 에서 파일 최적화 코드 클론\n- /saio 폴더가 없을 때 Drawer의 saio 사용자 저장소를 숨기도록 변경\n- 레이아웃 로드 방식 변경\n- 음악 플레이어에 가로 레이아웃이 없는 문제 수정\n- 설정에서 '큰 화면에서 유닛 나눠 보기' 삭제";
 		_log_dataset();
-		Snackbar.make(recyclerview1, "최신 업데이트 정보를 확인할까요?", Snackbar.LENGTH_SHORT)
+		Snackbar.make(binding.recyclerview1, "최신 업데이트 정보를 확인할까요?", Snackbar.LENGTH_SHORT)
 		    .setAction("확인", v -> {
-				if (recyclerview1.getAdapter() != null) {
-					int lastPosition = recyclerview1.getAdapter().getItemCount() - 1;
-					recyclerview1.smoothScrollToPosition(lastPosition);
+				if (binding.recyclerview1.getAdapter() != null) {
+					int lastPosition = binding.recyclerview1.getAdapter().getItemCount() - 1;
+					binding.recyclerview1.smoothScrollToPosition(lastPosition);
 				}
 			}).show();
 	}
@@ -96,8 +86,8 @@ public class UpdatelogActivity extends BaseThemeActivity {
 			map.put("content", (i < contents.size()) ? contents.get(i) : "[내용 없음]");
 			list_map.add(map);
 		}
-		recyclerview1.setAdapter(new Recyclerview1Adapter(list_map));
-		recyclerview1.setLayoutManager(new LinearLayoutManager(this));
+		binding.recyclerview1.setAdapter(new Recyclerview1Adapter(list_map));
+		binding.recyclerview1.setLayoutManager(new LinearLayoutManager(this));
 	}
 	
 	public class Recyclerview1Adapter extends RecyclerView.Adapter<Recyclerview1Adapter.ViewHolder> {

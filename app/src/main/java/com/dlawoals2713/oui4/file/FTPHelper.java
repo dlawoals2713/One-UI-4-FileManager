@@ -166,7 +166,7 @@ public class FTPHelper {
     
     // FTPHelper.java
     public String getServerAddress() {
-        return server + ":" + port;  // 예: "example.com:21"
+        return server + ":" + port;
     }
     
     // 파일 또는 디렉토리 경로를 받아 총 크기를 계산하는 정적 메서드

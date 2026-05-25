@@ -35,7 +35,6 @@ public class MusicService extends Service {
     private String currentTitle = "";
     private String currentArtist = "";
     private String currentAlbumArt = "";
-    private int currentDuration = 0;
 
     // 재생 상태
     private boolean isPlaying = false;
@@ -82,7 +81,6 @@ public class MusicService extends Service {
         super.onCreate();
         mediaPlayer = new MediaPlayer();
 
-        // MediaPlayer 완료 리스너 설정
         mediaPlayer.setOnCompletionListener(mp -> {
             isPlaying = false;
             if (listener != null) {
@@ -103,10 +101,6 @@ public class MusicService extends Service {
                 }
             }
         };
-
-        //if (mediaPlayer.getAudioSessionId() != 0) {
-        //    setupVisualizer();
-        //}
     }
 
     private void setupVisualizer() {
@@ -120,13 +114,9 @@ public class MusicService extends Service {
             visualizer.setDataCaptureListener(
                     new Visualizer.OnDataCaptureListener() {
                         @Override
-                        public void onWaveFormDataCapture(Visualizer visualizer, byte[] waveform, int samplingRate) {
-                            // 이 예제에서는 사용하지 않음
-                        }
-
+                        public void onWaveFormDataCapture(Visualizer visualizer, byte[] waveform, int samplingRate) {}
                         @Override
                         public void onFftDataCapture(Visualizer visualizer, byte[] fft, int samplingRate) {
-                            // FFT 데이터를 리스너를 통해 전달
                             if (visualizerListener != null) {
                                 visualizerListener.onFftDataCapture(fft);
                             }
@@ -184,12 +174,6 @@ public class MusicService extends Service {
                 mediaPlayer.start();
                 isPlaying = true;
 
-                // Visualizer 활성화
-                //if (visualizer != null) {
-                //    visualizer.setEnabled(true);
-                //}
-
-                // 곡 정보 업데이트
                 updateMusicInfo(filePath);
 
                 // 재생 상태 전송
@@ -268,9 +252,6 @@ public class MusicService extends Service {
             } else {
                 currentAlbumArt = ""; // 앨범 아트가 없는 경우 빈 문자열
             }
-
-            // 곡의 총 길이 추출
-            currentDuration = mediaPlayer.getDuration();
 
             // 리스너를 통해 정보 전송
             if (listener != null) {
